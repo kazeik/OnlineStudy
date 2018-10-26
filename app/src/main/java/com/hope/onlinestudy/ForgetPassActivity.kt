@@ -2,11 +2,14 @@ package com.hope.onlinestudy
 
 import android.app.Activity
 import android.os.Bundle
+import com.hope.lib.base.BaseActivity
 
-class ForgetPassActivity : Activity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_forget_pass)
+class ForgetPassActivity : BaseActivity() {
+    override fun getLayoutView(): Int {
+        return R.layout.activity_forget_pass
     }
+
+    override fun initData() {
+    }
+
 }
