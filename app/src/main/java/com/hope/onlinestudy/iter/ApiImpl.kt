@@ -1,6 +1,6 @@
 package com.hope.onlinestudy.iter
 
-import com.hope.lib.base.BaseActivity
+import com.hope.onlinestudy.base.BaseActivity
 
 /**
  * @author hope.chen, QQ:77132995, email:kazeik@163.com

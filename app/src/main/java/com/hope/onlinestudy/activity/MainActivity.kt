@@ -1,8 +1,8 @@
-package com.hope.onlinestudy
+package com.hope.onlinestudy.activity
 
 import android.view.View
-import com.hope.lib.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_login.*
+import com.hope.onlinestudy.base.BaseActivity
+import com.hope.onlinestudy.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 

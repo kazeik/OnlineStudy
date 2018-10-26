@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".activity.LoginActivity">
 
     <ImageView
         android:id="@+id/ivTopLogo"
@@ -26,6 +26,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
             android:background="@drawable/button_round_shape"
             android:text="登录"
             android:textColor="@color/white" />
@@ -47,7 +48,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/dp_10"
-        android:textColor="@color/colorPrimary"
         android:text="忘记密码?"
+        android:textColor="@color/colorPrimary"
         android:textSize="@dimen/sp_14" />
 </RelativeLayout>

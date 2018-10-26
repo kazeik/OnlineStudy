@@ -1,14 +1,15 @@
-package com.hope.onlinestudy
+package com.hope.onlinestudy.activity
 
 import android.view.View
-import com.hope.lib.base.BaseActivity
+import com.hope.onlinestudy.base.BaseActivity
+import com.hope.onlinestudy.R
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.view_title.*
 
 class LoginActivity : BaseActivity(),View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id){
-            R.id.btnSubmit->{}
+            R.id.btnSubmit->startOther(StartActivity::class.java)
             R.id.iv_backup->finish()
         }
     }

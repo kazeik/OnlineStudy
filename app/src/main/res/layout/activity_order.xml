@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <include layout="@layout/view_title"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvObil"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/sp_13"
+                android:padding="@dimen/dp_5"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:drawablePadding="@dimen/dp_5"
+                android:textColor="@color/textcolor"
+                android:text="待付款"/>
+
+        <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvIsPay"
+                android:textSize="@dimen/sp_13"
+                android:padding="@dimen/dp_5"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:drawablePadding="@dimen/dp_5"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="@color/textcolor"
+                android:text="已支付"/>
+
+        <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvNoPay"
+                android:textSize="@dimen/sp_13"
+                android:padding="@dimen/dp_5"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:drawablePadding="@dimen/dp_5"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="@color/textcolor"
+                android:text="未支付"/>
+
+        <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvCurrent"
+                android:textSize="@dimen/sp_13"
+                android:padding="@dimen/dp_5"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:drawablePadding="@dimen/dp_5"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="@color/textcolor"
+                android:text="当前订单"/>
+
+        <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHistroy"
+                android:textSize="@dimen/sp_13"
+                android:padding="@dimen/dp_5"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:drawablePadding="@dimen/dp_5"
+                android:layout_weight="1"
+                android:textColor="@color/textcolor"
+                android:text="历史订单"/>
+    </LinearLayout>
+
+    <include layout="@layout/layout_recyclerview"/>
+</LinearLayout>

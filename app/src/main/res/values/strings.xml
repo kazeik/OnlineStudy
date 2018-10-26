@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">在线学习</string>
+    <string name="tab_frist">我的课程</string>
+    <string name="tab_two">我的考试</string>
+    <string name="tab_three">个人中心</string>
+    <string name="msg_app_exit">再按一次退出应用</string>
+
+    <string-array name="lessonarray">
+        <item>最新</item>
+        <item>最热</item>
+    </string-array>
+    <string-array name="examarray">
+        <item>正在进行的考试</item>
+        <item>即将开始的考试</item>
+        <item>已经完成的考试</item>
+    </string-array>
 </resources>

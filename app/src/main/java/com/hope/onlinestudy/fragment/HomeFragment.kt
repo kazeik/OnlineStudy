@@ -1,0 +1,52 @@
+package com.hope.onlinestudy.fragment
+
+
+import android.support.design.widget.TabLayout
+import android.support.v4.app.Fragment
+import com.hope.onlinestudy.base.BaseFragment
+import com.hope.onlinestudy.R
+import com.hope.onlinestudy.adapter.TabVpAdapter
+import kotlinx.android.synthetic.main.layout_tab_vfp.*
+import kotlinx.android.synthetic.main.view_title.*
+
+
+/**
+ * A simple [Fragment] subclass.
+ * 首页
+ */
+class HomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
+    override fun onTabReselected(tab: TabLayout.Tab?) {
+    }
+
+    override fun onTabUnselected(tab: TabLayout.Tab?) {
+    }
+
+    override fun onTabSelected(tab: TabLayout.Tab?) {
+    }
+
+    private val lesssonAdapter: TabVpAdapter by lazy { TabVpAdapter(childFragmentManager) }
+    private val tabInndicat: Array<String> by lazy { resources.getStringArray(R.array.lessonarray) }
+    private val itemFragments: ArrayList<Fragment> by lazy { ArrayList<Fragment>() }
+    override fun initView(): Int {
+        return R.layout.layout_tab_vfp
+    }
+
+    override fun bindData() {
+        tv_title.setText("我的课程")
+        itemFragments.add(NewLessonFragment())
+        itemFragments.add(HotLessonFragment())
+
+        lesssonAdapter.fmTitle = tabInndicat
+        lesssonAdapter.fmList = itemFragments
+//        vpfPage.adapter = lesssonAdapter
+
+        tabPolling.addOnTabSelectedListener(this)
+        for (item in tabInndicat) {
+            tabPolling.addTab(tabPolling.newTab().setText(item))
+        }
+        tabPolling.tabMode = TabLayout.MODE_FIXED
+        tabPolling.setupWithViewPager(vpfPage)
+    }
+
+
+}

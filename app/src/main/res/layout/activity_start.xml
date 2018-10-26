@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:background="@color/linegray_color"
+                android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/gr_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/tab_color"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="3dp"
+        android:paddingTop="5dp">
+
+        <RadioButton
+            android:id="@+id/rb_zixuan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/content_zixuan_selector"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/tab_frist"
+            android:textColor="@drawable/content_textcolor"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rb_hanqing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/content_hanqing_selector"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/tab_two"
+            android:textColor="@drawable/content_textcolor"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rb_my"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/content_my_selector"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/tab_three"
+            android:textColor="@drawable/content_textcolor"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0.5"
+        android:layout_above="@id/gr_bottom"
+        android:background="@color/main_tab_select_color" />
+
+
+    <com.hope.lib.view.ViewPagerFixed
+        android:id="@+id/vfpMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/gr_bottom">
+
+    </com.hope.lib.view.ViewPagerFixed>
+
+</RelativeLayout>
