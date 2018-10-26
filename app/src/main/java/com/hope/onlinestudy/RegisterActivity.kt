@@ -2,15 +2,17 @@ package com.hope.onlinestudy
 
 import android.view.View
 import com.hope.lib.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.view_title.*
 
 class RegisterActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btnSubmit -> {
+            R.id.btnRegisterSubmit -> {
             }
             R.id.iv_backup -> finish()
+            R.id.btnCode -> {
+            }
         }
     }
 
@@ -19,8 +21,10 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        btnSubmit.setOnClickListener(this)
+        tv_title.setText("注册")
+        btnRegisterSubmit.setOnClickListener(this)
         iv_backup.setOnClickListener(this)
+        btnCode.setOnClickListener(this)
     }
 
 }

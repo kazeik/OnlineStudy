@@ -3,7 +3,6 @@ package com.hope.onlinestudy
 import android.view.View
 import com.hope.lib.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_title.*
 
 class LoginActivity : BaseActivity(),View.OnClickListener {
@@ -19,6 +18,7 @@ class LoginActivity : BaseActivity(),View.OnClickListener {
     }
 
     override fun initData() {
+        tv_title.setText("登录")
         btnSubmit.setOnClickListener(this)
         iv_backup.setOnClickListener(this)
     }
