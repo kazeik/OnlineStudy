@@ -1,6 +1,12 @@
 package com.hope.onlinestudy.fragment
 
+import android.support.v7.widget.GridLayoutManager
+import com.hope.lib.iter.OnItemEventListener
+import com.hope.onlinestudy.R
+import com.hope.onlinestudy.adapter.LessonAdapter
 import com.hope.onlinestudy.base.BaseFragment
+import com.hope.onlinestudy.model.LessonModel
+import kotlinx.android.synthetic.main.layout_recyclerview.*
 
 /**
  * @author hope.chen
@@ -8,12 +14,18 @@ import com.hope.onlinestudy.base.BaseFragment
  *         2018 10 26 20:34
  * 类说明:
  */
-class NewLessonFragment : BaseFragment() {
+class NewLessonFragment : BaseFragment(),OnItemEventListener {
+    override fun onItemEvent(pos: Int) {
+    }
+
+    private val lessonAdapter:LessonAdapter<LessonModel> by lazy { LessonAdapter<LessonModel>() }
     override fun initView(): Int {
-        return 0
+        return R.layout.layout_recyclerview
     }
 
     override fun bindData() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        rcvList.layoutManager = GridLayoutManager(activity,2)
+        rcvList.adapter = lessonAdapter
+        lessonAdapter.itemListener = this
     }
 }

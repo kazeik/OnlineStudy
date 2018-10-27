@@ -18,7 +18,7 @@ abstract class BaseFragment : Fragment(), INetStrListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(initView(), container, false)!!
+        return inflater.inflate(initView(), container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

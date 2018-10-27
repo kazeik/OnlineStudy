@@ -24,7 +24,7 @@ class HomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
     override fun onTabSelected(tab: TabLayout.Tab?) {
     }
 
-    private val lesssonAdapter: TabVpAdapter by lazy { TabVpAdapter(childFragmentManager) }
+    private val homeAdapter: TabVpAdapter by lazy { TabVpAdapter(childFragmentManager) }
     private val tabInndicat: Array<String> by lazy { resources.getStringArray(R.array.lessonarray) }
     private val itemFragments: ArrayList<Fragment> by lazy { ArrayList<Fragment>() }
     override fun initView(): Int {
@@ -36,9 +36,9 @@ class HomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
         itemFragments.add(NewLessonFragment())
         itemFragments.add(HotLessonFragment())
 
-        lesssonAdapter.fmTitle = tabInndicat
-        lesssonAdapter.fmList = itemFragments
-//        vpfPage.adapter = lesssonAdapter
+        homeAdapter.fmTitle = tabInndicat
+        homeAdapter.fmList = itemFragments
+        vpfPage.adapter = homeAdapter
 
         tabPolling.addOnTabSelectedListener(this)
         for (item in tabInndicat) {

@@ -1,7 +1,5 @@
 package com.hope.onlinestudy.activity
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseActivity
@@ -15,7 +13,7 @@ class MessageActivity : BaseActivity(),View.OnClickListener {
     }
 
     override fun getLayoutView(): Int {
-        return R.layout.activity_message
+        return R.layout.layout_title_recyclerview
     }
 
     override fun initData() {
