@@ -9,6 +9,7 @@ class ChangePassActivity : BaseActivity(), View.OnClickListener{
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.iv_backup->finish()
+            R.id.btnChangePass->{}
         }
     }
 
@@ -20,5 +21,7 @@ class ChangePassActivity : BaseActivity(), View.OnClickListener{
         tv_title.setText("修改密码")
         iv_backup.setOnClickListener(this)
     }
+    private fun changePass(){
 
+    }
 }
