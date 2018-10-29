@@ -3,6 +3,7 @@ package com.hope.onlinestudy.fragment
 
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
+import android.view.View
 import com.hope.onlinestudy.base.BaseFragment
 
 import com.hope.onlinestudy.R
@@ -34,6 +35,7 @@ class ExamineFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
 
     override fun bindData() {
         tv_title.setText("我的考试")
+        iv_backup.visibility = View.GONE
         itemFragments.add(ExamingFragment())
         itemFragments.add(ExamStartingFragment())
         itemFragments.add(ExamDoneFragment())

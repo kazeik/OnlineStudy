@@ -25,17 +25,21 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_marginRight="@dimen/dp_10"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_10"
-        android:layout_height="wrap_content">
+        android:layout_marginRight="@dimen/dp_10">
 
         <Button
             android:id="@+id/btnCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:text="获取验证码" />
+            android:paddingRight="@dimen/dp_15"
+            android:paddingLeft="@dimen/dp_15"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_reigster_round_shape"
+            android:text="获取验证码"
+            android:textSize="@dimen/sp_14" />
 
         <EditText
             android:id="@+id/etPass"
@@ -61,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_15"
-        android:text="下一步"
         android:background="@drawable/button_round_shape"
+        android:text="下一步"
         android:textColor="@color/white" />
 </LinearLayout>

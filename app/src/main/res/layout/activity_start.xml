@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:background="@color/linegray_color"
-                android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/linegray_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <RadioGroup
         android:id="@+id/gr_bottom"
@@ -14,8 +14,8 @@
         android:background="@color/tab_color"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingBottom="3dp"
-        android:paddingTop="5dp">
+        android:paddingTop="5dp"
+        android:paddingBottom="3dp">
 
         <RadioButton
             android:id="@+id/rb_zixuan"
