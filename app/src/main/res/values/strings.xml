@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">在线学习</string>
+    <string name="app_name">学习圈</string>
     <string name="tab_frist">我的课程</string>
     <string name="tab_two">我的考试</string>
     <string name="tab_three">个人中心</string>
@@ -8,6 +8,10 @@
     <string-array name="lessonarray">
         <item>最新</item>
         <item>最热</item>
+    </string-array>
+    <string-array name="messagetitle">
+        <item>消息</item>
+        <item>通知</item>
     </string-array>
     <string-array name="examarray">
         <item>正在进行的考试</item>
