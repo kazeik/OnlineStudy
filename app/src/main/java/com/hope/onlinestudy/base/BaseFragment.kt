@@ -7,14 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hope.lib.iter.INetStrListener
-import com.hope.onlinestudy.base.BaseActivity
+import com.hope.onlinestudy.iter.ApiImpl
+import com.hope.onlinestudy.iter.ApiInter
 
 abstract class BaseFragment : Fragment(), INetStrListener {
     protected var activity: BaseActivity? = null
-
+    protected var apiInter: ApiInter? = null
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         activity = context as BaseActivity
+        if (null != activity) {
+            apiInter = ApiImpl()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

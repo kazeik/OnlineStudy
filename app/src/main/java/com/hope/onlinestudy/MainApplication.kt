@@ -1,6 +1,7 @@
 package com.hope.onlinestudy
 
 import android.app.Activity
+import android.content.Context
 import android.support.multidex.MultiDexApplication
 import java.util.*
 
@@ -12,9 +13,9 @@ import java.util.*
 class MainApplication : MultiDexApplication() {
     private var activityList: LinkedList<Activity>? = null
 
-
     override fun onCreate() {
         super.onCreate()
+        mInstance = this
         activityList = LinkedList()
     }
 
@@ -31,5 +32,20 @@ class MainApplication : MultiDexApplication() {
             activityList?.clear()
             activityList = null
         }
+    }
+
+    companion object {
+        private var mInstance: MainApplication? = null
+
+        val appContext: Context?
+            get() = mInstance
+
+        val instance: MainApplication
+            get() {
+                if (mInstance == null)
+                    mInstance = MainApplication()
+
+                return mInstance!!
+            }
     }
 }

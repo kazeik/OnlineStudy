@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentActivity
 import com.hope.lib.iter.INetStrListener
 import com.hope.lib.view.LoadingView
 import com.hope.onlinestudy.MainApplication
+import com.hope.onlinestudy.iter.ApiImpl
+import com.hope.onlinestudy.iter.ApiInter
 
 /**
  * @author kazeik.chen, QQ:77132995, email:kazeik@163.com
@@ -16,7 +18,7 @@ import com.hope.onlinestudy.MainApplication
 abstract class BaseActivity : FragmentActivity(), INetStrListener {
     var myApplicaton: MainApplication? = null
     private var loadingView: LoadingView? = null
-
+    val apiInter :ApiInter by lazy { ApiImpl() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

@@ -2,6 +2,7 @@ package com.hope.onlinestudy.fragment
 
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseFragment
+import com.hope.onlinestudy.utils.ApiUtils
 
 
 /**
@@ -16,5 +17,14 @@ class MessageFragment : BaseFragment() {
     }
 
     override fun bindData() {
+        apiInter?.getmessage("message", 1, ApiUtils.getmessage, this)
+    }
+
+    override fun getNetStr(tag: String, body: String?) {
+        super.getNetStr(tag, body)
+        when (tag) {
+            ApiUtils.getmessage -> {
+            }
+        }
     }
 }

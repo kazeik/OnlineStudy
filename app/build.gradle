@@ -16,8 +16,12 @@ android {
     }
     buildTypes {
         release {
+            buildConfigField("boolean", "LOG_DEBUG", "false")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField("boolean", "LOG_DEBUG", "true")
         }
     }
 
@@ -54,4 +58,6 @@ dependencies {
         exclude(group: 'com.github.bumptech.glide', module: 'glide')
     }
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+    implementation 'com.jiechic.library:xUtils:2.6.14'
 }

@@ -9,14 +9,14 @@
     <include layout="@layout/view_title" />
 
     <EditText
-        android:id="@+id/etPhone"
+        android:id="@+id/etAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入手机号"
+        android:hint="请输入帐号或手机号"
         android:padding="@dimen/dp_10"
         android:layout_margin="@dimen/dp_10"
         android:background="@color/transparent"
-        android:inputType="phone" />
+        android:inputType="text" />
 
     <View
         android:layout_width="match_parent"
