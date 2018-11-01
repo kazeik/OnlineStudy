@@ -3,6 +3,7 @@
     <string name="tab_frist">我的课程</string>
     <string name="tab_two">我的考试</string>
     <string name="tab_three">个人中心</string>
+    <string name="tab_type">分类</string>
     <string name="msg_app_exit">再按一次退出应用</string>
 
     <string-array name="lessonarray">
@@ -18,4 +19,7 @@
         <item>即将开始的考试</item>
         <item>已经完成的考试</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

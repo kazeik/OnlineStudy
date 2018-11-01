@@ -32,6 +32,19 @@
             android:textSize="12sp" />
 
         <RadioButton
+            android:id="@+id/rb_fenlei"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:drawableTop="@drawable/content_classfiy_selector"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/tab_type"
+            android:textColor="@drawable/content_textcolor"
+            android:textSize="12sp" />
+
+        <RadioButton
             android:id="@+id/rb_hanqing"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

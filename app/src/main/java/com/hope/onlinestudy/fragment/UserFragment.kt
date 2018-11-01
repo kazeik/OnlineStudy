@@ -24,6 +24,9 @@ class UserFragment : BaseFragment(), View.OnClickListener {
             R.id.rlOrder -> startActivity(Intent(activity, OrderActivity::class.java))
             R.id.rlZy -> startActivity(Intent(activity, HomeWorkActivity::class.java))
             R.id.btnExit -> {
+                activity?.myApplicaton?.exitApp()
+                startActivity(Intent(activity, LoginActivity::class.java))
+                activity?.finish()
             }
         }
     }
@@ -39,6 +42,7 @@ class UserFragment : BaseFragment(), View.OnClickListener {
         rlMessage.setOnClickListener(this)
         rlOrder.setOnClickListener(this)
         rlZy.setOnClickListener(this)
+        btnExit.setOnClickListener(this)
     }
 
 
