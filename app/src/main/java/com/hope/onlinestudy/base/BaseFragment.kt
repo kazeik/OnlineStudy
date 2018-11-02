@@ -12,12 +12,12 @@ import com.hope.onlinestudy.iter.ApiInter
 
 abstract class BaseFragment : Fragment(), INetStrListener {
     protected var activity: BaseActivity? = null
-    protected var apiInter: ApiInter? = null
+    protected val apiInter: ApiInter by lazy { ApiImpl(this) }
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         activity = context as BaseActivity
         if (null != activity) {
-            apiInter = ApiImpl()
+
         }
     }
 

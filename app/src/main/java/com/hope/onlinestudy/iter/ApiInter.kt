@@ -10,9 +10,9 @@ interface ApiInter {
      * @param username
      * @param userpwd
      */
-    fun login(username: String, userpwd: String, tag: String,callback: INetStrListener)
+    fun login(username: String, userpwd: String, tag: String)
 
-    fun getVerfiyCode(phone: String, tag: String,callback: INetStrListener)
+    fun getVerfiyCode(phone: String, tag: String)
     /**
      * @author
      * @param type
@@ -20,5 +20,5 @@ interface ApiInter {
      *      notice :通知
      * @param page :default =1
      */
-    fun getmessage(type: String, page: Int, tag: String,callback: INetStrListener)
+    fun getmessage(type: String, page: Int, tag: String)
 }

@@ -10,11 +10,14 @@ import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.Utils
+import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.view_title.*
 import org.jetbrains.anko.toast
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
+    private var username: String? = null
+    private var userpwd: String? = null
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnSubmit -> login()
@@ -32,15 +35,19 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         btnSubmit.setOnClickListener(this)
         iv_backup.setOnClickListener(this)
 
+        username = PreferencesUtils.getString(this, "username")
+        userpwd = PreferencesUtils.getString(this, "userpwd")
         if (BuildConfig.LOG_DEBUG) {
-            etAccount.setText("zxstudent1")
-            etPass.setText("123123")
+            username = "zxstudent1"
+            userpwd = "123123"
         }
+        etAccount.setText(username)
+        etPass.setText(userpwd)
     }
 
     private fun login() {
-        val username = etAccount.text.toString()
-        val userpwd = etPass.text.toString()
+        username = etAccount.text.toString()
+        userpwd = etPass.text.toString()
 
         if (TextUtils.isEmpty(username)) {
             toast("用户名不能为空")
@@ -51,17 +58,17 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             return
         }
 
-        PreferencesUtils.putString(this, "username", username)
-        PreferencesUtils.putString(this, "userpwd", userpwd)
+        PreferencesUtils.putString(this, "username", username!!)
+        PreferencesUtils.putString(this, "userpwd", userpwd!!)
 
         showDialog(true)
-//        apiInter.login(username, userpwd, ApiUtils.login, this)
+        apiInter.login(username!!, userpwd!!, ApiUtils.login)
     }
 
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
         if (tag == ApiUtils.login) {
-            val jsonModel = Utils.parserJson<BaseModel<Any>>(body)
+            val jsonModel = parserJson<BaseModel<Any>>(body)
             when (jsonModel.code) {
                 1 -> startOther(StartActivity::class.java, true)
                 else -> toast(jsonModel.message)

@@ -10,18 +10,18 @@ import com.lidroid.xutils.http.client.HttpRequest
  * 2018 10 16 11:06
  * 类说明:
  */
-class ApiImpl : ApiInter {
-    override fun getmessage(type: String, page: Int, tag: String, callback: INetStrListener) {
+class ApiImpl(private val callback: INetStrListener) : ApiInter {
+    override fun getmessage(type: String, page: Int, tag: String) {
         val params = RequestParams()
         params.addBodyParameter("method", type)
         params.addBodyParameter("currentPage", "$page")
         HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.POST, ApiUtils.getmessage, tag, params, callback)
     }
 
-    override fun getVerfiyCode(phone: String, tag: String, callback: INetStrListener) {
+    override fun getVerfiyCode(phone: String, tag: String) {
     }
 
-    override fun login(username: String, userpwd: String, tag: String, callback: INetStrListener) {
+    override fun login(username: String, userpwd: String, tag: String) {
         val params = RequestParams()
         params.addBodyParameter("username", username)
         params.addBodyParameter("userpwd", userpwd)

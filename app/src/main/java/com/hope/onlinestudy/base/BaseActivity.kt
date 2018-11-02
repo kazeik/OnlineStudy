@@ -18,7 +18,7 @@ import com.hope.onlinestudy.iter.ApiInter
 abstract class BaseActivity : FragmentActivity(), INetStrListener {
     var myApplicaton: MainApplication? = null
     private var loadingView: LoadingView? = null
-    val apiInter :ApiInter by lazy { ApiImpl() }
+    val apiInter :ApiInter by lazy { ApiImpl(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

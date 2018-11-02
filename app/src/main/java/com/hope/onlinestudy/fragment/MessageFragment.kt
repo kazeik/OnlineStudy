@@ -17,7 +17,7 @@ class MessageFragment : BaseFragment() {
     }
 
     override fun bindData() {
-        apiInter?.getmessage("message", 1, ApiUtils.getmessage, this)
+        apiInter.getmessage("message", 1, ApiUtils.getmessage)
     }
 
     override fun getNetStr(tag: String, body: String) {

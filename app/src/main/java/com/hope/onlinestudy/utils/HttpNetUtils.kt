@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.hope.onlinestudy.utils
 
 import android.text.TextUtils
