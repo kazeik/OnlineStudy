@@ -4,8 +4,8 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
-import com.hope.lib.iter.INetStrListener
-import com.hope.lib.view.LoadingView
+import com.hope.onlinestudy.iter.INetStrListener
+import com.hope.onlinestudy.view.LoadingView
 import com.hope.onlinestudy.MainApplication
 import com.hope.onlinestudy.iter.ApiImpl
 import com.hope.onlinestudy.iter.ApiInter
@@ -33,7 +33,7 @@ abstract class BaseActivity : FragmentActivity(), INetStrListener {
 
     abstract fun initData()
 
-    override fun getNetStr(tag: String, body: String?) {
+    override fun getNetStr(tag: String, body: String) {
         hideDialog()
     }
 

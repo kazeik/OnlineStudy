@@ -1,4 +1,4 @@
-package com.hope.lib.iter
+package com.hope.onlinestudy.iter
 
 /**
  * @author hope.chen , QQ:77132995,email:kazeik@163.com
@@ -11,7 +11,7 @@ interface INetStrListener {
      * @param tag 当前请求标识
      * @param body 服务端返回的数据
      */
-    fun getNetStr(tag: String, body: String?)
+    fun getNetStr(tag: String, body: String)
 
     /**
      * 网络请求错误

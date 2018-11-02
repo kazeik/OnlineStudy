@@ -1,12 +1,15 @@
 package com.hope.onlinestudy.activity
 
+import android.annotation.SuppressLint
 import android.text.TextUtils
 import android.view.View
 import com.hope.lib.utils.PreferencesUtils
 import com.hope.onlinestudy.BuildConfig
 import com.hope.onlinestudy.base.BaseActivity
 import com.hope.onlinestudy.R
+import com.hope.onlinestudy.base.BaseModel
 import com.hope.onlinestudy.utils.ApiUtils
+import com.hope.onlinestudy.utils.Utils
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.view_title.*
 import org.jetbrains.anko.toast
@@ -23,6 +26,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         return R.layout.activity_login
     }
 
+    @SuppressLint("SetTextI18n")
     override fun initData() {
         tv_title.setText("登录")
         btnSubmit.setOnClickListener(this)
@@ -50,18 +54,17 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         PreferencesUtils.putString(this, "username", username)
         PreferencesUtils.putString(this, "userpwd", userpwd)
 
-        apiInter.login(username, userpwd, ApiUtils.login,this)
+        showDialog(true)
+//        apiInter.login(username, userpwd, ApiUtils.login, this)
     }
 
-    override fun getNetStr(tag: String, body: String?) {
+    override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
         if (tag == ApiUtils.login) {
-            when (body) {
-                "fail" ->
-                    toast("你输入的帐号或密码不正确，请重新输入。")
-                "lock" -> toast("账号被锁定")
-                "nonactivated" -> toast("账号未激活")
-                else -> startOther(StartActivity::class.java, true)
+            val jsonModel = Utils.parserJson<BaseModel<Any>>(body)
+            when (jsonModel.code) {
+                1 -> startOther(StartActivity::class.java, true)
+                else -> toast(jsonModel.message)
             }
         }
     }

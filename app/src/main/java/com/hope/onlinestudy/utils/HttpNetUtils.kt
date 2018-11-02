@@ -5,7 +5,7 @@ package com.hope.onlinestudy.utils
 import android.text.TextUtils
 import com.google.gson.JsonParseException
 import com.google.gson.JsonParser
-import com.hope.lib.iter.INetStrListener
+import com.hope.onlinestudy.iter.INetStrListener
 import com.hope.lib.utils.PreferencesUtils
 import com.hope.onlinestudy.MainApplication
 import com.hope.onlinestudy.utils.Utils.logs
@@ -16,11 +16,8 @@ import com.lidroid.xutils.http.RequestParams
 import com.lidroid.xutils.http.ResponseInfo
 import com.lidroid.xutils.http.callback.RequestCallBack
 import com.lidroid.xutils.http.client.HttpRequest
-import okhttp3.*
 import org.apache.http.entity.StringEntity
 import java.io.File
-import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 @Suppress("DEPRECATION")
 /**

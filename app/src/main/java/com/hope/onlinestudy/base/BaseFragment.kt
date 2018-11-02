@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.hope.lib.iter.INetStrListener
+import com.hope.onlinestudy.iter.INetStrListener
 import com.hope.onlinestudy.iter.ApiImpl
 import com.hope.onlinestudy.iter.ApiInter
 
@@ -30,7 +30,7 @@ abstract class BaseFragment : Fragment(), INetStrListener {
         bindData()
     }
 
-    override fun getNetStr(tag: String, body: String?) {
+    override fun getNetStr(tag: String, body: String) {
     }
 
     override fun netError(tag: String, body: String?, e: Exception?) {

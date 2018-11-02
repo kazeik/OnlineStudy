@@ -20,7 +20,7 @@ class MessageFragment : BaseFragment() {
         apiInter?.getmessage("message", 1, ApiUtils.getmessage, this)
     }
 
-    override fun getNetStr(tag: String, body: String?) {
+    override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
         when (tag) {
             ApiUtils.getmessage -> {

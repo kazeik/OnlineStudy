@@ -1,14 +1,12 @@
-package com.hope.lib.view
+package com.hope.onlinestudy.view
 
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.app.DialogFragment
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.Window
-import android.view.WindowManager
+import android.view.*
 import android.widget.TextView
 import com.hope.onlinestudy.R
 
@@ -63,6 +61,11 @@ class LoadingView : DialogFragment() {
             val isCancel = tempBund.getBoolean("cancel")
             showDialog?.setCanceledOnTouchOutside(isCancel)
             showDialog?.setCancelable(isCancel)
+            showDialog?.setOnKeyListener(object : DialogInterface.OnKeyListener {
+                override fun onKey(dialog: DialogInterface?, keyCode: Int, event: KeyEvent?): Boolean {
+                    return !isCancel
+                }
+            })
         }
         return showDialog!!
     }
@@ -72,4 +75,6 @@ class LoadingView : DialogFragment() {
         showDialog?.dismiss()
         showDialog = null
     }
+
+
 }
