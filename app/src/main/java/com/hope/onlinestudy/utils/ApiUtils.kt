@@ -15,4 +15,8 @@ object ApiUtils {
     val login = "appLogin"
 
     val exitlogin = "exitLogin"
+
+    val toMyCourse = "toMyCourse"
+    val toAppHomePage = "toAppHomePage"
+    val toAppExam = "toAppExam"
 }

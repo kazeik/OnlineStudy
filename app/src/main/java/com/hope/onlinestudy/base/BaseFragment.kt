@@ -16,9 +16,6 @@ abstract class BaseFragment : Fragment(), INetStrListener {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         activity = context as BaseActivity
-        if (null != activity) {
-
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

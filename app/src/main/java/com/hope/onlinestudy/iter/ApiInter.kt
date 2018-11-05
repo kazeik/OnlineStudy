@@ -21,4 +21,6 @@ interface ApiInter {
      * @param page :default =1
      */
     fun getmessage(type: String, page: Int, tag: String)
+
+    fun gethomepage()
 }

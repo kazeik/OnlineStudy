@@ -11,6 +11,10 @@ import com.lidroid.xutils.http.client.HttpRequest
  * 类说明:
  */
 class ApiImpl(private val callback: INetStrListener) : ApiInter {
+    override fun gethomepage() {
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET,ApiUtils.toAppHomePage,callback)
+    }
+
     override fun getmessage(type: String, page: Int, tag: String) {
         val params = RequestParams()
         params.addBodyParameter("method", type)

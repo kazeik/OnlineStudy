@@ -32,10 +32,29 @@ class HttpNetUtils {
         getHttpUtils()
     }
 
+    fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, listener: INetStrListener? = null) {
+        requestData(method, url, url, null, listener)
+    }
+
+    /**
+     *
+     * @param method HttpRequest.HttpMethod?
+     * @param url String
+     * @param tag String
+     * @param listener INetStrListener?
+     */
     fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, tag: String = "", listener: INetStrListener? = null) {
         requestData(method, url, tag, null, listener)
     }
 
+    /**
+     *
+     * @param method HttpRequest.HttpMethod?
+     * @param url String
+     * @param tag String
+     * @param _params RequestParams?
+     * @param listener INetStrListener?
+     */
     fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, tag: String = "", _params: RequestParams? = null, listener: INetStrListener? = null) {
         var params = _params
         if (null == params)
@@ -43,11 +62,22 @@ class HttpNetUtils {
         send(method, url, params, tag, listener)
     }
 
+    /**
+     *
+     * @param url String
+     * @param path String
+     * @param callBack RequestCallBack<File>
+     */
     fun getFile(url: String, path: String, callBack: RequestCallBack<File>) {
         utils.download(url, path, true, true, callBack)
     }
 
-
+    /**
+     *
+     * @param url String
+     * @param path String
+     * @param callBack RequestCallBack<File>
+     */
     fun getFileByCookie(url: String, path: String, callBack: RequestCallBack<File>) {
         val tempcookie = PreferencesUtils.getString(MainApplication.appContext!!, "cookie")
         val params = RequestParams()
@@ -79,7 +109,8 @@ class HttpNetUtils {
     private fun send(method: HttpRequest.HttpMethod?, apiUrl: String, params: RequestParams, tag: String, listener: INetStrListener?) {
         val tempcookie = PreferencesUtils.getString(MainApplication.appContext!!, "cookie")
         if (null != tempcookie)
-            params.addHeader("Cookie", tempcookie)
+            params.addHeader("userId", tempcookie)
+        params.addBodyParameter("logintype","1")
         val url = "${ApiUtils.baseUrl}$apiUrl"
         logs("tag", "url = $url")
         handler = utils.send(method, url, params, object : RequestCallBack<String>(tag) {
@@ -87,10 +118,12 @@ class HttpNetUtils {
                 val heads = responseInfo.allHeaders
                 if (heads != null && !heads.isEmpty())
                     for (item in heads) {
-                        if (item.name == "Set-Cookie" ) {
+                        if (item.name == "Set-Cookie") {
                             logs("tag", "${item.name}    ${item.value}")
-                            if(!TextUtils.isEmpty(item.value) && item.value.startsWith("study_app_login_cookie")){
-                                PreferencesUtils.putString(MainApplication.appContext!!, "cookie", item.value)
+                            if (!TextUtils.isEmpty(item.value) && item.value.startsWith("study_app_login_cookie")) {
+                                val temp = item.value.substring(0, item.value.indexOf(";"))
+                                val tempCookie = temp.substring(temp.indexOf("=") + 1, temp.length)
+                                PreferencesUtils.putString(MainApplication.appContext!!, "cookie", tempCookie)
                             }
                         }
                     }

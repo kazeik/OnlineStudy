@@ -7,6 +7,8 @@ import android.view.View
 import com.hope.onlinestudy.base.BaseFragment
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.TabVpAdapter
+import com.hope.onlinestudy.iter.INetStrListener
+import com.hope.onlinestudy.utils.ApiUtils
 import kotlinx.android.synthetic.main.layout_tab_vfp.*
 import kotlinx.android.synthetic.main.view_title.*
 
@@ -34,7 +36,7 @@ class HomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
 
     override fun bindData() {
         tv_title.setText("我的课程")
-        iv_backup.visibility= View.GONE
+        iv_backup.visibility = View.GONE
         itemFragments.add(NewLessonFragment())
         itemFragments.add(HotLessonFragment())
 
@@ -48,7 +50,16 @@ class HomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
         }
         tabPolling.tabMode = TabLayout.MODE_FIXED
         tabPolling.setupWithViewPager(vpfPage)
+
+        activity?.showDialog()
+        apiInter.gethomepage()
     }
 
-
+    override fun getNetStr(tag: String, body: String) {
+        super.getNetStr(tag, body)
+        when (tag) {
+            ApiUtils.toAppHomePage -> {
+            }
+        }
+    }
 }

@@ -48,20 +48,39 @@ abstract class BaseActivity : FragmentActivity(), INetStrListener {
         startOther(Intent(this, cls))
     }
 
+    /**
+     *
+     * @param intt Intent
+     */
     fun startOther(intt: Intent) {
         startOther(intt, false)
     }
 
+    /**
+     *
+     * @param intt Intent
+     * @param finish Boolean
+     */
     fun startOther(intt: Intent, finish: Boolean) {
         startActivity(intt)
         if (finish) finish()
     }
 
+    /**
+     *
+     * @param cls Class<*>
+     * @param finish Boolean
+     */
     fun startOther(cls: Class<*>, finish: Boolean) {
         startOther(cls)
         if (finish) finish()
     }
 
+    /**
+     *
+     * @param msg String?
+     * @param cancel Boolean
+     */
     fun showDialog(msg: String? = "加载中", cancel: Boolean = false) {
         loadingView = LoadingView.getInstance(msg, cancel)
         loadingView?.show(fragmentManager, "dialog")
