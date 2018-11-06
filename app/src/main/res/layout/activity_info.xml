@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:background="@color/linegray_color1" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -47,18 +48,19 @@
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:id="@+id/ivUserAccount"
+            android:id="@+id/tvUserAccount"
             android:layout_width="wrap_content"
-            android:text="中芯国际"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/dp_10" />
+            android:layout_margin="@dimen/dp_10"
+            android:text="中芯国际" />
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:background="@color/linegray_color1" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -74,7 +76,7 @@
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:id="@+id/ivUserName"
+            android:id="@+id/tvUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -85,6 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:background="@color/linegray_color1" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -100,7 +103,7 @@
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:id="@+id/ivSex"
+            android:id="@+id/tvSex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -111,6 +114,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:background="@color/linegray_color1" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -126,7 +130,7 @@
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:id="@+id/ivTel"
+            android:id="@+id/tvTel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -137,6 +141,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:background="@color/linegray_color1" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -152,7 +157,7 @@
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:id="@+id/ivEmail"
+            android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -163,6 +168,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:background="@color/linegray_color1" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -178,7 +184,7 @@
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:id="@+id/ivSchool"
+            android:id="@+id/tvSchool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

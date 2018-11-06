@@ -39,7 +39,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         userpwd = PreferencesUtils.getString(this, "userpwd")
         if (BuildConfig.LOG_DEBUG) {
             username = "zxstudent1"
-            userpwd = "123123"
+            userpwd = "123456"
         }
         etAccount.setText(username)
         etPass.setText(userpwd)

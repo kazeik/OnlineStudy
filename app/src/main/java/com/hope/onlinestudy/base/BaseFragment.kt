@@ -28,9 +28,11 @@ abstract class BaseFragment : Fragment(), INetStrListener {
     }
 
     override fun getNetStr(tag: String, body: String) {
+        activity?.hideDialog()
     }
 
     override fun netError(tag: String, body: String?, e: Exception?) {
+        activity?.hideDialog()
     }
 
     override fun reLogin() {

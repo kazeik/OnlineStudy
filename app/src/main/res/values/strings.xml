@@ -7,8 +7,8 @@
     <string name="msg_app_exit">再按一次退出应用</string>
 
     <string-array name="lessonarray">
-        <item>最新</item>
-        <item>最热</item>
+        <item>收藏的课程</item>
+        <item>购买的课程</item>
     </string-array>
     <string-array name="messagetitle">
         <item>消息</item>

@@ -46,6 +46,12 @@ class HttpNetUtils {
     fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, tag: String = "", listener: INetStrListener? = null) {
         requestData(method, url, tag, null, listener)
     }
+    fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, _params: RequestParams? = null, listener: INetStrListener? = null) {
+        var params = _params
+        if (null == params)
+            params = RequestParams()
+        send(method, url, params, url, listener)
+    }
 
     /**
      *
@@ -107,10 +113,12 @@ class HttpNetUtils {
     }
 
     private fun send(method: HttpRequest.HttpMethod?, apiUrl: String, params: RequestParams, tag: String, listener: INetStrListener?) {
-        val tempcookie = PreferencesUtils.getString(MainApplication.appContext!!, "cookie")
-        if (null != tempcookie)
-            params.addHeader("userId", tempcookie)
-        params.addBodyParameter("logintype","1")
+        if (tag != ApiUtils.login) {
+            val tempcookie = PreferencesUtils.getString(MainApplication.appContext!!, "cookie")
+            if (null != tempcookie)
+                params.addQueryStringParameter("userId", tempcookie)
+            params.addQueryStringParameter("logintype", "1")
+        }
         val url = "${ApiUtils.baseUrl}$apiUrl"
         logs("tag", "url = $url")
         handler = utils.send(method, url, params, object : RequestCallBack<String>(tag) {

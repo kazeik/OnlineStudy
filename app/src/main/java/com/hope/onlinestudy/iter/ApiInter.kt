@@ -23,4 +23,10 @@ interface ApiInter {
     fun getmessage(type: String, page: Int, tag: String)
 
     fun gethomepage()
+
+    fun getuserinfo()
+
+    fun changepass(oldPass:String,newpass:String)
+
+    fun getUserLesson()
 }

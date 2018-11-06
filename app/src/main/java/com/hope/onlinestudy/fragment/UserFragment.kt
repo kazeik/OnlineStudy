@@ -4,21 +4,41 @@ package com.hope.onlinestudy.fragment
 import android.content.Intent
 import android.support.v4.app.Fragment
 import android.view.View
-import com.hope.onlinestudy.base.BaseFragment
-
+import com.bumptech.glide.Glide
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.activity.*
+import com.hope.onlinestudy.base.BaseModel
+import com.hope.onlinestudy.base.LazyFragment
+import com.hope.onlinestudy.img.GlideCircleTransform
+import com.hope.onlinestudy.model.UserInfoModel
+import com.hope.onlinestudy.utils.ApiUtils
+import com.hope.onlinestudy.utils.ApiUtils.imgUrl
+import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.fragment_user.*
+import org.jetbrains.anko.support.v4.toast
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class UserFragment : BaseFragment(), View.OnClickListener {
+class UserFragment : LazyFragment(), View.OnClickListener {
+    private var userModel: BaseModel<UserInfoModel>? = null
+    override fun lazyLoad() {
+        if (userModel == null) {
+            activity?.showDialog()
+            apiInter.getuserinfo()
+        }
+    }
+
     override fun onClick(v: View?) {
+        val intt = Intent()
+        intt.putExtra("data",userModel)
         when (v?.id) {
             R.id.rlChangePass -> startActivity(Intent(activity, ChangePassActivity::class.java))
-            R.id.rlInfo -> startActivity(Intent(activity, InfoActivity::class.java))
+            R.id.rlInfo -> {
+                intt.setClass(activity,InfoActivity::class.java)
+                startActivity(intt)
+            }
             R.id.rlJf -> startActivity(Intent(activity, IntegralActivity::class.java))
             R.id.rlMessage -> startActivity(Intent(activity, MessageActivity::class.java))
             R.id.rlOrder -> startActivity(Intent(activity, OrderActivity::class.java))
@@ -28,6 +48,8 @@ class UserFragment : BaseFragment(), View.OnClickListener {
                 startActivity(Intent(activity, LoginActivity::class.java))
                 activity?.finish()
             }
+            R.id.rlAbout->startActivity(Intent(activity,AboutActivity::class.java))
+            R.id.rlLesson->startActivity(Intent(activity,LessonActivity::class.java))
         }
     }
 
@@ -43,7 +65,34 @@ class UserFragment : BaseFragment(), View.OnClickListener {
         rlOrder.setOnClickListener(this)
         rlZy.setOnClickListener(this)
         btnExit.setOnClickListener(this)
+        rlAbout.setOnClickListener(this)
+        rlLesson.setOnClickListener(this)
+
+        var imgpath = imgUrl
+        if (null != userModel) {
+            imgpath = "$imgUrl${userModel?.data?.get(0)!!.userIcon}"
+        }
+        showIcon(imgpath)
     }
 
+    override fun getNetStr(tag: String, body: String) {
+        super.getNetStr(tag, body)
+        when (tag) {
+            ApiUtils.toMyInfo -> {
+                userModel = parserJson(body)
+//                if (userModel?.code == 1) {
+//                    tvName.text = userModel?.data?.get(0)!!.username
+//                    showIcon("$imgUrl${userModel?.data?.get(0)!!.userIcon}")
+//                } else {
+//                    toast(userModel?.message!!)
+//                }
+            }
+        }
+    }
 
+    private fun showIcon(path: String) {
+        Glide.with(this).load(path)
+                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).override(100, 100)
+                .transform(GlideCircleTransform(activity!!)).into(ivUserIcon)
+    }
 }

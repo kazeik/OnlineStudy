@@ -9,14 +9,20 @@ package com.hope.onlinestudy.utils
  */
 
 object ApiUtils {
-    val baseUrl = "http://zxserver.f3322.net:8080/study/apphome/"
-    val getmessage = "getpagemessage"
+    val baseUrl = "http://zxserver.f3322.net:8080/study/"
+    val imgUrl = "http://zxserver.f3322.net:8080/comm/"
+    val getmessage = "apphome/getpagemessage"
 
-    val login = "appLogin"
-
-    val exitlogin = "exitLogin"
-
-    val toMyCourse = "toMyCourse"
-    val toAppHomePage = "toAppHomePage"
-    val toAppExam = "toAppExam"
+    val login = "apphome/appLogin"
+    //退出登录
+    val exitlogin = "apphome/exitLogin"
+    //    我的课程
+    val toMyCourse = "apphome/toMyCourse"
+    val toAppHomePage = "apphome/toAppHomePage"
+    //我的考试
+    val toAppExam = "apphome/toAppExam"
+    //我的笔记
+    val toMyNote = "apphome/toMyNote"
+    val toMyInfo = "apphome/toMyInfo"
+    val changePass = "ksuser/updateNewPassword"
 }

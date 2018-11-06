@@ -11,8 +11,23 @@ import com.lidroid.xutils.http.client.HttpRequest
  * 类说明:
  */
 class ApiImpl(private val callback: INetStrListener) : ApiInter {
+    override fun getUserLesson() {
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.toMyCourse, callback)
+    }
+
+    override fun changepass(oldPass: String, newpass: String) {
+        val params = RequestParams()
+        params.addBodyParameter("oldpassword", oldPass)
+        params.addBodyParameter("newpassword", newpass)
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.changePass, params, callback)
+    }
+
+    override fun getuserinfo() {
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.toMyInfo, callback)
+    }
+
     override fun gethomepage() {
-        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET,ApiUtils.toAppHomePage,callback)
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.toAppHomePage, callback)
     }
 
     override fun getmessage(type: String, page: Int, tag: String) {

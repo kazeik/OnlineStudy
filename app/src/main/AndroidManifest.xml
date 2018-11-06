@@ -3,6 +3,7 @@
     package="com.hope.onlinestudy">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -39,6 +40,9 @@
         <activity android:name=".activity.ChangePassActivity" />
         <activity android:name=".activity.MessageActivity" />
         <activity android:name=".activity.InfoActivity" />
+        <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.LessonActivity"></activity>
     </application>
 
 </manifest>
