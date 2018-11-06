@@ -68,10 +68,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
         if (tag == ApiUtils.login) {
-            val jsonModel = parserJson<BaseModel<Any>>(body)
+            val jsonModel = parserJson<BaseModel>(body)
             when (jsonModel.code) {
                 1 -> startOther(StartActivity::class.java, true)
-                else -> toast(jsonModel.message)
+                else -> toast(jsonModel.message!!)
             }
         }
     }

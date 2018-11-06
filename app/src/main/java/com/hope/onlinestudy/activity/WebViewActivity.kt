@@ -2,6 +2,7 @@ package com.hope.onlinestudy.activity
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
+import android.text.TextUtils
 import android.view.KeyEvent
 import android.webkit.*
 import com.hope.onlinestudy.R
@@ -10,14 +11,18 @@ import com.hope.onlinestudy.utils.Utils.logs
 import kotlinx.android.synthetic.main.view_webview.*
 
 class WebViewActivity : BaseActivity() {
-    private val urlPath = "http://zxserver.f3322.net:8080/study/apphome/toAppHomePage"
+    private var urlPath = "http://zxserver.f3322.net:8080/study/apphome/toAppHomePage"
     override fun getLayoutView(): Int {
         return R.layout.view_webview
     }
 
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled", "AddJavascriptInterface")
     override fun initData() {
-        wvView.loadUrl(urlPath)//加载url
+        val tempPath:String? = intent.getStringExtra("url")
+        if (TextUtils.isEmpty(tempPath)) {
+            urlPath = tempPath!!
+        }
+        wvView.loadUrl(urlPath)
 
         wvView.addJavascriptInterface(this, "android")
         wvView.webChromeClient = object : WebChromeClient() {

@@ -10,5 +10,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="这是一段关于我们的介绍"
-        android:textColor="@color/textcolor" />
+        android:textColor="@color/text" />
 </LinearLayout>

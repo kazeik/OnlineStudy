@@ -21,7 +21,7 @@
         android:paddingLeft="12dp"
         android:paddingTop="@dimen/dp_15"
         android:paddingBottom="@dimen/dp_15"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/text"
         android:textSize="15sp" />
 
     <EditText
@@ -38,7 +38,7 @@
         android:paddingLeft="12dp"
         android:paddingTop="@dimen/dp_15"
         android:paddingBottom="@dimen/dp_15"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/text"
         android:textSize="15sp" />
 
     <EditText
@@ -55,7 +55,7 @@
         android:paddingLeft="12dp"
         android:paddingTop="@dimen/dp_15"
         android:paddingBottom="@dimen/dp_15"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/text"
         android:textSize="15sp" />
 
     <Button

@@ -16,6 +16,6 @@
     <color name="linegray_color">#ffeeeeee</color>
     <color name="tab_color">#f5f5f5</color>
 
-    <color name="textcolor">#333333</color>
+    <color name="text">#333333</color>
     <color name="item_bg">#f8f8f8</color>
 </resources>

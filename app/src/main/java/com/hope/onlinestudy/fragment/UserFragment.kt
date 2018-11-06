@@ -10,11 +10,13 @@ import com.hope.onlinestudy.activity.*
 import com.hope.onlinestudy.base.BaseModel
 import com.hope.onlinestudy.base.LazyFragment
 import com.hope.onlinestudy.img.GlideCircleTransform
+import com.hope.onlinestudy.model.ListUserModel
 import com.hope.onlinestudy.model.UserInfoModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.ApiUtils.imgUrl
 import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.fragment_user.*
+import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.toast
 
 /**
@@ -22,7 +24,7 @@ import org.jetbrains.anko.support.v4.toast
  *
  */
 class UserFragment : LazyFragment(), View.OnClickListener {
-    private var userModel: BaseModel<UserInfoModel>? = null
+    private var userModel: ListUserModel? = null
     override fun lazyLoad() {
         if (userModel == null) {
             activity?.showDialog()
@@ -32,11 +34,11 @@ class UserFragment : LazyFragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val intt = Intent()
-        intt.putExtra("data",userModel)
         when (v?.id) {
             R.id.rlChangePass -> startActivity(Intent(activity, ChangePassActivity::class.java))
             R.id.rlInfo -> {
-                intt.setClass(activity,InfoActivity::class.java)
+                intt.putExtra("data", userModel?.data?.get(0))
+                intt.setClass(activity, InfoActivity::class.java)
                 startActivity(intt)
             }
             R.id.rlJf -> startActivity(Intent(activity, IntegralActivity::class.java))
@@ -48,8 +50,13 @@ class UserFragment : LazyFragment(), View.OnClickListener {
                 startActivity(Intent(activity, LoginActivity::class.java))
                 activity?.finish()
             }
-            R.id.rlAbout->startActivity(Intent(activity,AboutActivity::class.java))
-            R.id.rlLesson->startActivity(Intent(activity,LessonActivity::class.java))
+            R.id.rlAbout -> startActivity(Intent(activity, AboutActivity::class.java))
+            R.id.rlLesson -> {
+                intt.setClass(activity, WebViewActivity::class.java)
+                intt.putExtra("url", "http://zxserver.f3322.net:8080/study/apphome/toMyCourse")
+                startActivity(intt)
+//                startActivity(Intent(activity, LessonActivity::class.java))
+            }
         }
     }
 
@@ -70,7 +77,7 @@ class UserFragment : LazyFragment(), View.OnClickListener {
 
         var imgpath = imgUrl
         if (null != userModel) {
-            imgpath = "$imgUrl${userModel?.data?.get(0)!!.userIcon}"
+            imgpath = "$imgUrl${userModel?.data?.get(0)!!.userImg}"
         }
         showIcon(imgpath)
     }
@@ -80,12 +87,12 @@ class UserFragment : LazyFragment(), View.OnClickListener {
         when (tag) {
             ApiUtils.toMyInfo -> {
                 userModel = parserJson(body)
-//                if (userModel?.code == 1) {
-//                    tvName.text = userModel?.data?.get(0)!!.username
-//                    showIcon("$imgUrl${userModel?.data?.get(0)!!.userIcon}")
-//                } else {
-//                    toast(userModel?.message!!)
-//                }
+                if (userModel?.code == 1) {
+                    tvName.text = userModel?.data?.get(0)!!.truename
+                    showIcon("$imgUrl${userModel?.data?.get(0)!!.userImg}")
+                } else {
+                    toast(userModel?.message!!)
+                }
             }
         }
     }
