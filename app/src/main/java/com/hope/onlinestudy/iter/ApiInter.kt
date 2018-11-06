@@ -29,4 +29,7 @@ interface ApiInter {
     fun changepass(oldPass:String,newpass:String)
 
     fun getUserLesson()
+
+
+    fun startRegister(phone:String,code:String)
 }

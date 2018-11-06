@@ -42,7 +42,7 @@
             android:textSize="@dimen/sp_14" />
 
         <EditText
-            android:id="@+id/etPass"
+            android:id="@+id/etCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

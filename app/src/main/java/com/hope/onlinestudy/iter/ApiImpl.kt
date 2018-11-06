@@ -11,6 +11,9 @@ import com.lidroid.xutils.http.client.HttpRequest
  * 类说明:
  */
 class ApiImpl(private val callback: INetStrListener) : ApiInter {
+    override fun startRegister(phone: String, code: String) {
+    }
+
     override fun getUserLesson() {
         HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.toMyCourse, callback)
     }
