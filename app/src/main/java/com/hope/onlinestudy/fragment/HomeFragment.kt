@@ -52,14 +52,9 @@ class HomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
         tabPolling.setupWithViewPager(vpfPage)
 
         activity?.showDialog()
-        apiInter.gethomepage()
     }
 
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
-        when (tag) {
-            ApiUtils.toAppHomePage -> {
-            }
-        }
     }
 }

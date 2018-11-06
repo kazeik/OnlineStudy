@@ -14,10 +14,10 @@ import kotlinx.android.synthetic.main.view_title.*
 /**
  * 我的课程
  */
-class LessonActivity : BaseActivity(),View.OnClickListener {
+class LessonActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
-        when(v?.id){
-            R.id.iv_backup->finish()
+        when (v?.id) {
+            R.id.iv_backup -> finish()
         }
     }
 
@@ -43,17 +43,10 @@ class LessonActivity : BaseActivity(),View.OnClickListener {
         tabPolling.tabMode = TabLayout.MODE_FIXED
         tabPolling.setupWithViewPager(vpfPage)
 
-        showDialog()
-        apiInter.getUserLesson()
     }
 
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
-        when(tag){
-//            ApiUtils.toMyCourse->{
-//
-//            }
-        }
 
     }
 }

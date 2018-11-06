@@ -28,6 +28,7 @@ object ApiUtils {
     val toMyInfo = "apphome/toMyInfo"
     //    更改密码
     val changePass = "ksuser/updateNewPassword"
-
+//    我的积分
     val toMyPoint= "apphome/toMyPoint"
+    val toMyOrder= "apphome/toMyOrder"
 }

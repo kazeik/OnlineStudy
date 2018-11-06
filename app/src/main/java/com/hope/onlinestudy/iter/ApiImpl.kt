@@ -11,12 +11,13 @@ import com.lidroid.xutils.http.client.HttpRequest
  * 类说明:
  */
 class ApiImpl(private val callback: INetStrListener) : ApiInter {
+    override fun sigleRequest(tag: String) {
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, tag, callback)
+    }
+
     override fun startRegister(phone: String, code: String) {
     }
 
-    override fun getUserLesson() {
-        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.toMyCourse, callback)
-    }
 
     override fun changepass(oldPass: String, newpass: String) {
         val params = RequestParams()
@@ -25,13 +26,6 @@ class ApiImpl(private val callback: INetStrListener) : ApiInter {
         HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.changePass, params, callback)
     }
 
-    override fun getuserinfo() {
-        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.toMyInfo, callback)
-    }
-
-    override fun gethomepage() {
-        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, ApiUtils.toAppHomePage, callback)
-    }
 
     override fun getmessage(type: String, page: Int, tag: String) {
         val params = RequestParams()

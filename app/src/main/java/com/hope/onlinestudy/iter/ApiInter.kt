@@ -22,14 +22,12 @@ interface ApiInter {
      */
     fun getmessage(type: String, page: Int, tag: String)
 
-    fun gethomepage()
-
-    fun getuserinfo()
 
     fun changepass(oldPass:String,newpass:String)
 
-    fun getUserLesson()
 
+    fun sigleRequest(tag:String)
 
     fun startRegister(phone:String,code:String)
+
 }

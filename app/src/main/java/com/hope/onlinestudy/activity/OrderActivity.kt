@@ -6,6 +6,7 @@ import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.OrderAdapter
 import com.hope.onlinestudy.base.BaseActivity
 import com.hope.onlinestudy.model.OrderModel
+import com.hope.onlinestudy.utils.ApiUtils
 import kotlinx.android.synthetic.main.activity_order.*
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 import kotlinx.android.synthetic.main.view_title.*
@@ -43,6 +44,15 @@ class OrderActivity : BaseActivity(), View.OnClickListener {
 
         rcvList.adapter = adapter
         rcvList.layoutManager = LinearLayoutManager(this)
+
+        showDialog()
+        apiInter.sigleRequest(ApiUtils.toMyOrder)
     }
 
+    override fun getNetStr(tag: String, body: String) {
+        super.getNetStr(tag, body)
+        if(tag == ApiUtils.toMyOrder){
+
+        }
+    }
 }

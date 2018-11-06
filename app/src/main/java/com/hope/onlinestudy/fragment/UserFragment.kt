@@ -28,7 +28,7 @@ class UserFragment : LazyFragment(), View.OnClickListener {
     override fun lazyLoad() {
         if (userModel == null) {
             activity?.showDialog()
-            apiInter.getuserinfo()
+            apiInter.sigleRequest(ApiUtils.toMyInfo)
         }
     }
 
@@ -41,7 +41,11 @@ class UserFragment : LazyFragment(), View.OnClickListener {
                 intt.setClass(activity, InfoActivity::class.java)
                 startActivity(intt)
             }
-            R.id.rlJf -> startActivity(Intent(activity, IntegralActivity::class.java))
+            R.id.rlJf -> {
+                intt.putExtra("data", userModel?.data?.get(0))
+                intt.setClass(activity, IntegralActivity::class.java)
+                startActivity(intt)
+            }
             R.id.rlMessage -> startActivity(Intent(activity, MessageActivity::class.java))
             R.id.rlOrder -> startActivity(Intent(activity, OrderActivity::class.java))
             R.id.rlZy -> startActivity(Intent(activity, HomeWorkActivity::class.java))
