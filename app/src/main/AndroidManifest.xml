@@ -42,7 +42,14 @@
         <activity android:name=".activity.InfoActivity" />
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.AboutActivity" />
-        <activity android:name=".activity.LessonActivity"></activity>
+        <activity android:name=".activity.LessonActivity" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5be24f06f1f5567c2e0000ba" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="study" />
     </application>
 
 </manifest>
