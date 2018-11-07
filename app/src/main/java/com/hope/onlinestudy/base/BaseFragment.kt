@@ -9,10 +9,13 @@ import android.view.ViewGroup
 import com.hope.onlinestudy.iter.ApiImpl
 import com.hope.onlinestudy.iter.ApiInter
 import com.hope.onlinestudy.iter.INetStrListener
+import com.hope.onlinestudy.view.LoadingView
 
 abstract class BaseFragment : Fragment(), INetStrListener {
     protected var activity: BaseActivity? = null
     protected val apiInter: ApiInter by lazy { ApiImpl(this) }
+    private var loadingView: LoadingView? = null
+
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         activity = context as BaseActivity
@@ -41,5 +44,4 @@ abstract class BaseFragment : Fragment(), INetStrListener {
     abstract fun initView(): Int
 
     abstract fun bindData()
-
 }

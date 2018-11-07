@@ -33,12 +33,6 @@
                 android:textColor="@color/white" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_1"
-            android:layout_marginTop="@dimen/dp_10"
-            android:background="@color/linegray_color1" />
-
         <RelativeLayout
             android:id="@+id/rlOrder"
             android:layout_width="match_parent"

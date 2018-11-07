@@ -30,8 +30,8 @@ class NotifiyFragment : LazyFragment() {
         rcvList.layoutManager = LinearLayoutManager(activity)
         rcvList.adapter = adapter
 
-//        activity?.showDialog()
-        apiInter.getmessage("notice", 1, ApiUtils.toMyMsg)
+//        apiInter.getmessage("notice", 1, ApiUtils.toMyMsg)
+        apiInter.sigleRequest(ApiUtils.toMyMsg)
     }
 
     override fun getNetStr(tag: String, body: String) {

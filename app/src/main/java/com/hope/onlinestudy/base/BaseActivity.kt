@@ -4,12 +4,12 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
-import com.hope.onlinestudy.iter.INetStrListener
-import com.hope.onlinestudy.view.LoadingView
 import com.hope.onlinestudy.MainApplication
 import com.hope.onlinestudy.iter.ApiImpl
 import com.hope.onlinestudy.iter.ApiInter
-import com.umeng.analytics.MobclickAgent
+import com.hope.onlinestudy.iter.INetStrListener
+import com.hope.onlinestudy.view.LoadingView
+import org.jetbrains.anko.toast
 
 /**
  * @author kazeik.chen, QQ:77132995, email:kazeik@163.com
@@ -40,6 +40,7 @@ abstract class BaseActivity : FragmentActivity(), INetStrListener {
 
     override fun netError(tag: String, body: String?, e: Exception?) {
         hideDialog()
+        toast(body!!)
     }
 
     override fun reLogin() {
