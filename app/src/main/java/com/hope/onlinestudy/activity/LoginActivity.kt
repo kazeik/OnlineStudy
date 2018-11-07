@@ -60,7 +60,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         PreferencesUtils.putString(this, "username", username!!)
         PreferencesUtils.putString(this, "userpwd", userpwd!!)
 
-        showDialog(true)
+        showDialog()
         apiInter.login(username!!, userpwd!!, ApiUtils.login)
     }
 

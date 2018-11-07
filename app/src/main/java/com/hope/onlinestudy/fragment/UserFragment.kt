@@ -14,6 +14,7 @@ import com.hope.onlinestudy.model.ListUserModel
 import com.hope.onlinestudy.model.UserInfoModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.ApiUtils.imgUrl
+import com.hope.onlinestudy.utils.Utils.logs
 import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.fragment_user.*
 import org.jetbrains.anko.support.v4.act
@@ -103,7 +104,7 @@ class UserFragment : LazyFragment(), View.OnClickListener {
 
     private fun showIcon(path: String) {
         Glide.with(this).load(path)
-                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).override(100, 100)
+                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                 .transform(GlideCircleTransform(activity!!)).into(ivUserIcon)
     }
 }

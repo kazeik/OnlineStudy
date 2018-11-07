@@ -17,14 +17,7 @@ import com.hope.onlinestudy.R
  * 类说明:
  */
 class LoadingView : DialogFragment() {
-    private var _context: Context? = null
-
     private var showDialog: Dialog? = null
-
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        this._context = context
-    }
 
     companion object {
         fun getInstance(msg: String? = "加载中", cancel: Boolean = false): LoadingView {
@@ -39,12 +32,11 @@ class LoadingView : DialogFragment() {
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        showDialog = Dialog(_context, R.style.loadingDialogStyle)
-        val view = LayoutInflater.from(_context).inflate(R.layout.view_dialog_loading, null)
-        showDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        showDialog?.setContentView(view)
+        showDialog = Dialog(activity, R.style.loadingDialogStyle)
 
-        val textview = view.findViewById<TextView>(R.id.tv)
+        showDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+//        showDialog?.setContentView(view)
+
 
         val dialogWindow = showDialog?.window
         dialogWindow?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
@@ -54,6 +46,12 @@ class LoadingView : DialogFragment() {
         lp?.height = WindowManager.LayoutParams.WRAP_CONTENT
         dialogWindow?.attributes = lp
 
+        return showDialog!!
+    }
+
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        val view = LayoutInflater.from(activity).inflate(R.layout.view_dialog_loading, null)
+        val textview = view.findViewById<TextView>(R.id.tv)
         val tempBund = arguments
         if (null != tempBund) {
             val showmsg = tempBund.getString("msg")
@@ -67,7 +65,7 @@ class LoadingView : DialogFragment() {
                 }
             })
         }
-        return showDialog!!
+        return view
     }
 
     override fun onDestroy() {

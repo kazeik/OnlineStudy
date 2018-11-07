@@ -42,16 +42,6 @@ abstract class BaseActivity : FragmentActivity(), INetStrListener {
         hideDialog()
     }
 
-    override fun onResume() {
-        super.onResume()
-        MobclickAgent.onResume(this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        MobclickAgent.onPause(this)
-    }
-
     override fun reLogin() {
     }
 
