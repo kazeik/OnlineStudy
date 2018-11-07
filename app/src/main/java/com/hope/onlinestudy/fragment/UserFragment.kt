@@ -2,6 +2,8 @@ package com.hope.onlinestudy.fragment
 
 
 import android.content.Intent
+import android.os.Build
+import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.view.View
 import com.bumptech.glide.Glide
@@ -10,11 +12,14 @@ import com.hope.onlinestudy.activity.*
 import com.hope.onlinestudy.base.LazyFragment
 import com.hope.onlinestudy.img.GlideCircleTransform
 import com.hope.onlinestudy.model.ListUserModel
+import com.hope.onlinestudy.model.MsgLengthModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.ApiUtils.imgUrl
 import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.fragment_user.*
 import org.jetbrains.anko.support.v4.toast
+import com.hope.onlinestudy.view.BadgeView
+
 
 /**
  * A simple [Fragment] subclass.
@@ -26,6 +31,8 @@ class UserFragment : LazyFragment(), View.OnClickListener {
         if (userModel == null) {
             activity?.showDialog()
             apiInter.sigleRequest(ApiUtils.toMyInfo)
+
+            apiInter.sigleRequest(ApiUtils.toMyCenter)
         }
     }
 
@@ -82,6 +89,7 @@ class UserFragment : LazyFragment(), View.OnClickListener {
         showIcon(imgpath)
     }
 
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
         when (tag) {
@@ -92,6 +100,16 @@ class UserFragment : LazyFragment(), View.OnClickListener {
                     showIcon("$imgUrl${userModel?.data?.get(0)!!.userImg}")
                 } else {
                     toast(userModel?.message!!)
+                }
+            }
+
+            ApiUtils.toMyCenter -> {
+                val msgModel: MsgLengthModel = parserJson(body)
+                if (msgModel.data.get(0).messageSize != 0) {
+                    tvMsgSize.visibility = View.VISIBLE
+                    val badge = BadgeView(activity)
+                    badge.setTargetView(tvMsgSize)
+                    badge.setBadgeCount(msgModel.data.get(0).messageSize)
                 }
             }
         }

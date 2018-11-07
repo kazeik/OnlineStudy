@@ -22,7 +22,7 @@
                 android:layout_width="@dimen/dp_100"
                 android:layout_height="@dimen/dp_100"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tvName"
@@ -236,13 +236,26 @@
                 android:text="我的消息"
                 android:textColor="@color/text" />
 
+
             <ImageView
+                android:id="@+id/ivRightMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:padding="@dimen/dp_10"
+                android:layout_alignParentRight="true"
                 android:src="@drawable/more" />
+
+            <TextView
+                android:id="@+id/tvMsgSize"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/ivRightMore"
+                android:padding="@dimen/dp_10"
+                android:textSize="@dimen/sp_12"
+                android:visibility="gone"
+                android:textColor="@color/white" />
         </RelativeLayout>
 
         <View

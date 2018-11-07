@@ -32,4 +32,5 @@ object ApiUtils {
     //    我的积分
     val toMyPoint = "apphome/toMyPoint"
     val toMyOrder = "apphome/toMyOrder"
+    val toMyCenter = "apphome/toMyCenter"
 }
