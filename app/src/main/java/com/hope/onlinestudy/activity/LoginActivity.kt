@@ -3,13 +3,12 @@ package com.hope.onlinestudy.activity
 import android.annotation.SuppressLint
 import android.text.TextUtils
 import android.view.View
-import com.hope.lib.utils.PreferencesUtils
+import com.hope.onlinestudy.utils.PreferencesUtils
 import com.hope.onlinestudy.BuildConfig
 import com.hope.onlinestudy.base.BaseActivity
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseModel
 import com.hope.onlinestudy.utils.ApiUtils
-import com.hope.onlinestudy.utils.Utils
 import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.view_title.*

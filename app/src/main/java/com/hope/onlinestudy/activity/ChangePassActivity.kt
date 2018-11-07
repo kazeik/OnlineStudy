@@ -60,7 +60,7 @@ class ChangePassActivity : BaseActivity(), View.OnClickListener {
                 if (body == "success") {
                     toast("密码修改成功")
                 } else {
-                    toast("密码修改失败，请重试")
+                    toast("密码修改失败")
                 }
             }
         }

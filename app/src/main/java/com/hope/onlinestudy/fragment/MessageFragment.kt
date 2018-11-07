@@ -5,6 +5,7 @@ import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.MessageAdapter
 import com.hope.onlinestudy.base.LazyFragment
 import com.hope.onlinestudy.model.MessageModel
+import com.hope.onlinestudy.model.MsgNotifModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.layout_recyclerview.*
@@ -29,16 +30,16 @@ class MessageFragment : LazyFragment() {
         rcvList.layoutManager = LinearLayoutManager(activity)
         rcvList.adapter = adapter
 
-        activity?.showDialog()
-        apiInter.getmessage("message", 1, ApiUtils.getmessage)
+//        activity?.showDialog()
+        apiInter.getmessage("message", 1, ApiUtils.toMyMsg)
     }
 
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
         when (tag) {
-            ApiUtils.getmessage -> {
-                val model = parserJson<MessageModel>(body)
-
+            ApiUtils.toMyMsg -> {
+                val model = parserJson<MsgNotifModel>(body)
+                adapter.setDataEntityList(model.data?.get(0)?.message!!)
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.hope.lib.utils
+package com.hope.onlinestudy.utils
 
 import android.annotation.SuppressLint
 import android.text.TextUtils
@@ -13,7 +13,7 @@ import java.util.*
 @SuppressLint("SimpleDateFormat")
 object TimeUtil {
     val DATE_YYYY = "yyyy"
-    val DATE_YMS = "yyyy-MM-dd"
+    val DATE_YMD = "yyyy-MM-dd"
     val DATE_YM = "yyyy-MM"
     val DATE_MS = "MM-dd"
     val DATE_YMD_HMS = "yyyy-MM-dd HH:mm:ss"

@@ -4,7 +4,6 @@ import android.text.TextUtils
 import com.google.gson.JsonParseException
 import com.google.gson.JsonParser
 import com.hope.onlinestudy.iter.INetStrListener
-import com.hope.lib.utils.PreferencesUtils
 import com.hope.onlinestudy.MainApplication
 import com.hope.onlinestudy.utils.Utils.logs
 import com.lidroid.xutils.HttpUtils

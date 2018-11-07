@@ -1,4 +1,4 @@
-package com.hope.lib.utils
+package com.hope.onlinestudy.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity

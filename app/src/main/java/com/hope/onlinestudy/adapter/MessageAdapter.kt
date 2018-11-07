@@ -1,6 +1,7 @@
 package com.hope.onlinestudy.adapter
 
 import android.widget.TextView
+import com.hope.onlinestudy.utils.TimeUtil
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseAdapter
 import com.hope.onlinestudy.base.BaseViewHolder
@@ -23,7 +24,7 @@ class MessageAdapter<A> : BaseAdapter<A>() {
         val tvTitle = holder.getViewById<TextView>(R.id.tvMsgTitle)
         val tvTime = holder.getViewById<TextView>(R.id.tvMsgTime)
 
-        tvTitle.setText(entity.messageInfo)
-        tvTime.setText(entity.createtime)
+        tvTitle.text = entity.messageInfo
+        tvTime.text = TimeUtil.getDayByType(entity.createtime.time, TimeUtil.DATE_YMD)
     }
 }

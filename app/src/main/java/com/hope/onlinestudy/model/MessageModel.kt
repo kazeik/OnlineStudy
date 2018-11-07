@@ -1,13 +1,13 @@
 package com.hope.onlinestudy.model
 
 data class MessageModel(
-        val courseId: String,
+        val courseId: Int,
         val courseName: String,
-        val createtime: String,
+        val createtime: Createtime,
         val id: Int,
         val messageInfo: String,
-        val messageReadState: String,
-        val messageState: String,
-        val orderId: String,
-        val userId: String
+        val messageReadState: Int,
+        val messageState: Int,
+        val orderId: Long,
+        val userId: Int
 )

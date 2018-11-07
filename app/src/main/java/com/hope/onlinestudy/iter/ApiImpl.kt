@@ -31,7 +31,7 @@ class ApiImpl(private val callback: INetStrListener) : ApiInter {
         val params = RequestParams()
         params.addBodyParameter("method", type)
         params.addBodyParameter("currentPage", "$page")
-        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.POST, ApiUtils.getmessage, tag, params, callback)
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.POST, ApiUtils.toMyMsg, tag, params, callback)
     }
 
     override fun getVerfiyCode(phone: String, tag: String) {

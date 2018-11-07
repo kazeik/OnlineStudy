@@ -17,7 +17,6 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.google.gson.Gson
-import com.hope.lib.utils.Arith
 import com.hope.onlinestudy.BuildConfig
 import java.io.File
 import java.text.DecimalFormat
