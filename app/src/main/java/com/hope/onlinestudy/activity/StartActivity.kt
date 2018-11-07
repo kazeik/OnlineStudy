@@ -8,6 +8,7 @@ import com.hope.onlinestudy.base.BaseActivity
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.FtPagerAdapter
 import com.hope.onlinestudy.fragment.*
+import com.hope.onlinestudy.utils.ApiUtils
 import kotlinx.android.synthetic.main.activity_start.*
 import org.jetbrains.anko.toast
 
@@ -44,9 +45,9 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
     }
 
     override fun initData() {
-        fmList.add(WebFragment.instance("http://zxserver.f3322.net:8080/study/apphome/toAppHomePage"))
+        fmList.add(WebFragment.instance(ApiUtils.toAppHomePage))
         fmList.add(ClassifyFragment())
-        fmList.add(ExamineFragment())
+        fmList.add(WebFragment.instance(ApiUtils.toAppExam))
         fmList.add(UserFragment())
 
         val adapter = FtPagerAdapter(supportFragmentManager, fmList)

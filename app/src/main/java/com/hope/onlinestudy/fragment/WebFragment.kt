@@ -6,6 +6,7 @@ import android.view.KeyEvent
 import android.webkit.*
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseFragment
+import com.hope.onlinestudy.utils.ApiUtils
 import kotlinx.android.synthetic.main.view_webview.*
 
 
@@ -33,8 +34,7 @@ class WebFragment : BaseFragment() {
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled", "AddJavascriptInterface")
     override fun bindData() {
         val urlPath = arguments?.getString("url")
-
-        wvView.loadUrl(urlPath)//加载url
+        wvView.loadUrl("${ApiUtils.baseUrl}$urlPath")//加载url
 
         wvView.addJavascriptInterface(this, "android")//添加js监听 这样html就能调用客户端
         wvView.webChromeClient = object : WebChromeClient() {

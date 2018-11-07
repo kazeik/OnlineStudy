@@ -7,22 +7,19 @@ import android.view.KeyEvent
 import android.webkit.*
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseActivity
+import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.Utils.logs
 import kotlinx.android.synthetic.main.view_webview.*
 
 class WebViewActivity : BaseActivity() {
-    private var urlPath = "http://zxserver.f3322.net:8080/study/apphome/toAppHomePage"
     override fun getLayoutView(): Int {
         return R.layout.view_webview
     }
 
     @SuppressLint("JavascriptInterface", "SetJavaScriptEnabled", "AddJavascriptInterface")
     override fun initData() {
-        val tempPath:String? = intent.getStringExtra("url")
-        if (TextUtils.isEmpty(tempPath)) {
-            urlPath = tempPath!!
-        }
-        wvView.loadUrl(urlPath)
+        val tempPath: String? = intent.getStringExtra("url")
+        wvView.loadUrl("${ApiUtils.baseUrl}$tempPath")
 
         wvView.addJavascriptInterface(this, "android")
         wvView.webChromeClient = object : WebChromeClient() {

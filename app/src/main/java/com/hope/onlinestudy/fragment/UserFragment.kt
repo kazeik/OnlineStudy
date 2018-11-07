@@ -7,17 +7,13 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.activity.*
-import com.hope.onlinestudy.base.BaseModel
 import com.hope.onlinestudy.base.LazyFragment
 import com.hope.onlinestudy.img.GlideCircleTransform
 import com.hope.onlinestudy.model.ListUserModel
-import com.hope.onlinestudy.model.UserInfoModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.ApiUtils.imgUrl
-import com.hope.onlinestudy.utils.Utils.logs
 import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.fragment_user.*
-import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.toast
 
 /**
@@ -58,9 +54,8 @@ class UserFragment : LazyFragment(), View.OnClickListener {
             R.id.rlAbout -> startActivity(Intent(activity, AboutActivity::class.java))
             R.id.rlLesson -> {
                 intt.setClass(activity, WebViewActivity::class.java)
-                intt.putExtra("url", "http://zxserver.f3322.net:8080/study/apphome/toMyCourse")
+                intt.putExtra("url", ApiUtils.toMyCourse)
                 startActivity(intt)
-//                startActivity(Intent(activity, LessonActivity::class.java))
             }
         }
     }
