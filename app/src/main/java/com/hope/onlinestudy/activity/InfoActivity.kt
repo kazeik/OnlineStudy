@@ -36,10 +36,16 @@ class InfoActivity : BaseActivity(), View.OnClickListener {
                 .transform(GlideCircleTransform(this)).into(ivUserIcon)
         tvUserAccount.text = usermodel?.username
         tvUserName.text = usermodel?.truename
-        tvSex.text = usermodel?.usersex
+        tvSex.text = if (usermodel?.usersex == "1") {
+            "女"
+        } else if (usermodel?.usersex == "2") {
+            "男"
+        } else {
+            ""
+        }
         tvTel.text = usermodel?.mobilephone
         tvEmail.text = usermodel?.useremail
-        tvSchool.text = usermodel?.useremail
+        tvSchool.text = ""
 
     }
 
