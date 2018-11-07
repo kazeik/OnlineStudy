@@ -45,8 +45,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun login() {
-        username = etAccount.text.toString()
-        userpwd = etPass.text.toString()
+        username = etAccount.text.toString().trim()
+        userpwd = etPass.text.toString().trim()
 
         if (TextUtils.isEmpty(username)) {
             toast("用户名不能为空")

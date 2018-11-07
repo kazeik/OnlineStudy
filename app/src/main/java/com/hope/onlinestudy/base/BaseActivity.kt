@@ -9,6 +9,7 @@ import com.hope.onlinestudy.view.LoadingView
 import com.hope.onlinestudy.MainApplication
 import com.hope.onlinestudy.iter.ApiImpl
 import com.hope.onlinestudy.iter.ApiInter
+import com.umeng.analytics.MobclickAgent
 
 /**
  * @author kazeik.chen, QQ:77132995, email:kazeik@163.com
@@ -39,6 +40,16 @@ abstract class BaseActivity : FragmentActivity(), INetStrListener {
 
     override fun netError(tag: String, body: String?, e: Exception?) {
         hideDialog()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MobclickAgent.onResume(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MobclickAgent.onPause(this)
     }
 
     override fun reLogin() {

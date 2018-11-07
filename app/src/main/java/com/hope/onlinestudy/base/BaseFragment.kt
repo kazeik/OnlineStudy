@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.hope.onlinestudy.iter.INetStrListener
 import com.hope.onlinestudy.iter.ApiImpl
 import com.hope.onlinestudy.iter.ApiInter
+import com.umeng.analytics.MobclickAgent
 
 abstract class BaseFragment : Fragment(), INetStrListener {
     protected var activity: BaseActivity? = null
@@ -42,4 +43,13 @@ abstract class BaseFragment : Fragment(), INetStrListener {
 
     abstract fun bindData()
 
+    override fun onResume() {
+        super.onResume()
+        MobclickAgent.onResume(activity)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MobclickAgent.onPause(activity)
+    }
 }
