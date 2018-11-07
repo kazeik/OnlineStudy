@@ -55,10 +55,13 @@ class ChangePassActivity : BaseActivity(), View.OnClickListener {
 
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
-        toast("暂未完成密码修改功能")
         when (tag) {
             ApiUtils.changePass -> {
-
+                if (body == "success") {
+                    toast("密码修改成功")
+                } else {
+                    toast("密码修改失败，请重试")
+                }
             }
         }
     }
