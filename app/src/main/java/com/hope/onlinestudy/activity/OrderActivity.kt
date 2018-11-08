@@ -5,27 +5,23 @@ import android.view.View
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.OrderAdapter
 import com.hope.onlinestudy.base.BaseActivity
+import com.hope.onlinestudy.model.OrderListModel
 import com.hope.onlinestudy.model.OrderModel
 import com.hope.onlinestudy.utils.ApiUtils
+import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.activity_order.*
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 import kotlinx.android.synthetic.main.view_title.*
 
 class OrderActivity : BaseActivity(), View.OnClickListener {
+    private var model: OrderListModel? = null
     private val adapter: OrderAdapter<OrderModel> by lazy { OrderAdapter<OrderModel>() }
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.iv_backup -> finish()
-            R.id.tvObil -> {
-            }
-            R.id.tvIsPay -> {
-            }
-            R.id.tvNoPay -> {
-            }
-            R.id.tvCurrent -> {
-            }
-            R.id.tvHistroy -> {
-            }
+            R.id.tvObil -> adapter.setDataEntityList(model?.data?.get(0)?.offOrderList!!)
+            R.id.tvIsPay -> adapter.setDataEntityList(model?.data?.get(0)?.mentOrderList!!)
+            R.id.tvHistroy -> adapter.setDataEntityList(model?.data?.get(0)?.orderList!!)
         }
     }
 
@@ -38,8 +34,6 @@ class OrderActivity : BaseActivity(), View.OnClickListener {
         iv_backup.setOnClickListener(this)
         tvObil.setOnClickListener(this)
         tvIsPay.setOnClickListener(this)
-        tvNoPay.setOnClickListener(this)
-        tvCurrent.setOnClickListener(this)
         tvHistroy.setOnClickListener(this)
 
         rcvList.adapter = adapter
@@ -51,8 +45,9 @@ class OrderActivity : BaseActivity(), View.OnClickListener {
 
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
-        if(tag == ApiUtils.toMyOrder){
-
+        if (tag == ApiUtils.toMyOrder) {
+            model = parserJson(body)
+            adapter.setDataEntityList(model?.data?.get(0)?.orderList!!)
         }
     }
 }

@@ -1,83 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/view_title"/>
+    <include layout="@layout/view_title" />
 
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_margin="@dimen/dp_10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:orientation="horizontal">
 
         <TextView
-                android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvObil"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/sp_13"
-                android:padding="@dimen/dp_5"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/ic_nopay"
-                android:drawablePadding="@dimen/dp_5"
-                android:textColor="@color/text"
-                android:text="待付款"/>
+            android:id="@+id/tvHistroy"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_histroy_order"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dp_5"
+            android:text="全部订单"
+            android:textColor="@color/text"
+            android:textSize="@dimen/sp_13" />
 
         <TextView
-                android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvIsPay"
-                android:textSize="@dimen/sp_13"
-                android:padding="@dimen/dp_5"
-                android:drawableTop="@drawable/ic_payd"
-                android:drawablePadding="@dimen/dp_5"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:textColor="@color/text"
-                android:text="已支付"/>
+            android:id="@+id/tvObil"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_nopay"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dp_5"
+            android:text="待付款"
+            android:textColor="@color/text"
+            android:textSize="@dimen/sp_13" />
 
         <TextView
-                android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvNoPay"
-                android:textSize="@dimen/sp_13"
-                android:padding="@dimen/dp_5"
-                android:drawableTop="@drawable/ic_mzf"
-                android:drawablePadding="@dimen/dp_5"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:textColor="@color/text"
-                android:text="未支付"/>
+            android:id="@+id/tvIsPay"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_payd"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dp_5"
+            android:text="已付款"
+            android:textColor="@color/text"
+            android:textSize="@dimen/sp_13" />
 
-        <TextView
-                android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvCurrent"
-                android:textSize="@dimen/sp_13"
-                android:padding="@dimen/dp_5"
-                android:drawableTop="@drawable/ic_crrent_order"
-                android:drawablePadding="@dimen/dp_5"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:textColor="@color/text"
-                android:text="当前订单"/>
+        <!--<TextView-->
+        <!--android:id="@+id/tvNoPay"-->
+        <!--android:layout_width="@dimen/dp_0"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:drawableTop="@drawable/ic_mzf"-->
+        <!--android:drawablePadding="@dimen/dp_5"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:padding="@dimen/dp_5"-->
+        <!--android:text="未付款"-->
+        <!--android:textColor="@color/text"-->
+        <!--android:textSize="@dimen/sp_13" />-->
 
-        <TextView
-                android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvHistroy"
-                android:textSize="@dimen/sp_13"
-                android:padding="@dimen/dp_5"
-                android:gravity="center_horizontal"
-                android:drawableTop="@drawable/ic_histroy_order"
-                android:drawablePadding="@dimen/dp_5"
-                android:layout_weight="1"
-                android:textColor="@color/text"
-                android:text="历史订单"/>
+        <!--<TextView-->
+        <!--android:id="@+id/tvCurrent"-->
+        <!--android:layout_width="@dimen/dp_0"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:drawableTop="@drawable/ic_crrent_order"-->
+        <!--android:drawablePadding="@dimen/dp_5"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:padding="@dimen/dp_5"-->
+        <!--android:text="当前订单"-->
+        <!--android:textColor="@color/text"-->
+        <!--android:textSize="@dimen/sp_13" />-->
+
+
     </LinearLayout>
 
-    <include layout="@layout/layout_recyclerview"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/linegray_color1" />
+
+    <include layout="@layout/layout_recyclerview" />
 </LinearLayout>
