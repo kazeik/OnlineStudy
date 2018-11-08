@@ -60,8 +60,9 @@ class UserFragment : LazyFragment(), View.OnClickListener {
             }
             R.id.rlAbout -> startActivity(Intent(activity, AboutActivity::class.java))
             R.id.rlLesson -> {
-                intt.setClass(activity, WebViewActivity::class.java)
-                intt.putExtra("url", ApiUtils.toMyCourse)
+//                intt.setClass(activity, WebViewActivity::class.java)
+//                intt.putExtra("url", ApiUtils.toMyCourse)
+                intt.setClass(activity,LessonActivity::class.java)
                 startActivity(intt)
             }
         }

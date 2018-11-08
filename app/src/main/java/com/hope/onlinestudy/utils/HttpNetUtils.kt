@@ -126,7 +126,6 @@ class HttpNetUtils {
                 if (heads != null && !heads.isEmpty())
                     for (item in heads) {
                         if (item.name == "Set-Cookie") {
-                            logs("tag", "${item.name}    ${item.value}")
                             if (!TextUtils.isEmpty(item.value) && item.value.startsWith("study_app_login_cookie")) {
                                 val temp = item.value.substring(0, item.value.indexOf(";"))
                                 val tempCookie = temp.substring(temp.indexOf("=") + 1, temp.length)

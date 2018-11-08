@@ -7,8 +7,6 @@ import android.view.View
 import com.hope.onlinestudy.base.BaseFragment
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.TabVpAdapter
-import com.hope.onlinestudy.iter.INetStrListener
-import com.hope.onlinestudy.utils.ApiUtils
 import kotlinx.android.synthetic.main.layout_tab_vfp.*
 import kotlinx.android.synthetic.main.view_title.*
 
@@ -37,8 +35,8 @@ class HomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
     override fun bindData() {
         tv_title.setText("我的课程")
         iv_backup.visibility = View.GONE
-        itemFragments.add(NewLessonFragment())
-        itemFragments.add(HotLessonFragment())
+        itemFragments.add(UserBuyFragment())
+        itemFragments.add(UserFavoritesFragment())
 
         homeAdapter.fmTitle = tabInndicat
         homeAdapter.fmList = itemFragments

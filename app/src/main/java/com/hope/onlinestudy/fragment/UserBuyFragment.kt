@@ -3,10 +3,11 @@ package com.hope.onlinestudy.fragment
 import android.support.v7.widget.GridLayoutManager
 import com.hope.lib.iter.OnItemEventListener
 import com.hope.onlinestudy.R
-import com.hope.onlinestudy.adapter.LessonAdapter
+import com.hope.onlinestudy.adapter.BuyLessonAdapter
 import com.hope.onlinestudy.base.BaseFragment
-import com.hope.onlinestudy.model.LessonModel
+import com.hope.onlinestudy.model.UserBoy
 import kotlinx.android.synthetic.main.layout_recyclerview.*
+
 
 /**
  * @author hope.chen
@@ -14,11 +15,11 @@ import kotlinx.android.synthetic.main.layout_recyclerview.*
  *         2018 10 26 20:34
  * 类说明:
  */
-class NewLessonFragment : BaseFragment(),OnItemEventListener {
+class UserBuyFragment : BaseFragment(),OnItemEventListener {
     override fun onItemEvent(pos: Int) {
     }
 
-    private val lessonAdapter:LessonAdapter<LessonModel> by lazy { LessonAdapter<LessonModel>() }
+    private val lessonAdapter:BuyLessonAdapter<UserBoy> by lazy { BuyLessonAdapter<UserBoy>(activity!!) }
     override fun initView(): Int {
         return R.layout.layout_recyclerview
     }
@@ -27,5 +28,9 @@ class NewLessonFragment : BaseFragment(),OnItemEventListener {
         rcvList.layoutManager = GridLayoutManager(activity,2)
         rcvList.adapter = lessonAdapter
         lessonAdapter.itemListener = this
+    }
+
+    fun showData(data:List<UserBoy>?){
+        lessonAdapter.setDataEntityList(data!!)
     }
 }

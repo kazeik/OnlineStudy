@@ -1,0 +1,30 @@
+package com.hope.onlinestudy.model
+
+data class UserFavorites(
+        val addTime: AddTime,
+        val comUser: ComUser,
+        val courseDesc: String,
+        val courseGoodsId: Int,
+        val courseGoodsName: String,
+        val courseImage: String,
+        val coursePreviewingVideo: String,
+        val courseSaleCount: Int,
+        val courseStatus: Int,
+        val courseTimeLong: Int,
+        val courseType: Int,
+        val dod: String,
+        val inviteCode: String,
+        val isfree: Int,
+        val isopen: Int,
+        val lessionNum: Int,
+        val pageViewcount: Int,
+        val promptInfo1: String,
+        val promptInfo2: String,
+        val recommendStatus: Int,
+        val salePoint: Int,
+        val specialtyId: Int,
+        val starLevel: Int,
+        val statusDesc: String,
+        val studyCount: Int,
+        val studySpecialty: StudySpecialty
+)

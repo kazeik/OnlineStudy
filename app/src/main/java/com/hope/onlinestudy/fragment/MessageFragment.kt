@@ -3,12 +3,8 @@ package com.hope.onlinestudy.fragment
 import android.support.v7.widget.LinearLayoutManager
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.MessageAdapter
-import com.hope.onlinestudy.base.LazyFragment
-import com.hope.onlinestudy.iter.ApiImpl
+import com.hope.onlinestudy.base.BaseFragment
 import com.hope.onlinestudy.model.MessageModel
-import com.hope.onlinestudy.model.MsgNotifModel
-import com.hope.onlinestudy.utils.ApiUtils
-import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 
 
@@ -18,10 +14,8 @@ import kotlinx.android.synthetic.main.layout_recyclerview.*
  *         2018 10 31 14:41
  * 类说明:
  */
-class MessageFragment : LazyFragment() {
+class MessageFragment : BaseFragment() {
     private val adapter: MessageAdapter<MessageModel> by lazy { MessageAdapter<MessageModel>() }
-    override fun lazyLoad() {
-    }
 
     override fun initView(): Int {
         return R.layout.layout_recyclerview
@@ -30,17 +24,10 @@ class MessageFragment : LazyFragment() {
     override fun bindData() {
         rcvList.layoutManager = LinearLayoutManager(activity)
         rcvList.adapter = adapter
-
-        apiInter.sigleRequest(ApiUtils.toMyMsg)
     }
 
-    override fun getNetStr(tag: String, body: String) {
-        super.getNetStr(tag, body)
-        when (tag) {
-            ApiUtils.toMyMsg -> {
-                val model: MsgNotifModel? = parserJson(body)
-                adapter.setDataEntityList(model?.data?.get(0)?.message!!)
-            }
-        }
+    fun setData(data: List<MessageModel>) {
+        adapter.setDataEntityList(data)
     }
+
 }
