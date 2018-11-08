@@ -65,6 +65,10 @@ class UserFragment : LazyFragment(), View.OnClickListener {
                 intt.setClass(activity,LessonActivity::class.java)
                 startActivity(intt)
             }
+            R.id.rlNote->{
+                intt.setClass(activity, NoteActivity::class.java)
+                startActivity(intt)
+            }
         }
     }
 
@@ -82,6 +86,7 @@ class UserFragment : LazyFragment(), View.OnClickListener {
         btnExit.setOnClickListener(this)
         rlAbout.setOnClickListener(this)
         rlLesson.setOnClickListener(this)
+        rlNote.setOnClickListener(this)
 
         var imgpath = imgUrl
         if (null != userModel) {

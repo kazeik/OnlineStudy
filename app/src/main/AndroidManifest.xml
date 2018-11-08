@@ -3,9 +3,9 @@
     package="com.hope.onlinestudy">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".MainApplication"
@@ -53,6 +53,8 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="study" />
+
+        <activity android:name=".activity.NoteActivity"></activity>
     </application>
 
 </manifest>
