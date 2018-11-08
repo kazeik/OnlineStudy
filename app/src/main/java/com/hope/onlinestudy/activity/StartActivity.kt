@@ -45,7 +45,8 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
     }
 
     override fun initData() {
-        fmList.add(WebFragment.instance(ApiUtils.toAppHomePage))
+//        fmList.add(WebFragment.instance(ApiUtils.toAppHomePage))
+        fmList.add(HomeFragment())
         fmList.add(ClassifyFragment())
         fmList.add(WebFragment.instance(ApiUtils.toAppExam))
         fmList.add(UserFragment())
