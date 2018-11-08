@@ -37,7 +37,7 @@ class HomeDataAdapter<A>(private val context: Context) : BaseAdapter<A>() {
         val entity = dataList?.get(position) as LessonItemModel
         Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").into(ivLessonIcon)
         tvLessonName.text = entity.courseGoodsName
-        tvPlayer.text = "已销售:${entity.courseStatus}"
+        tvPlayer.text = "已销售:${entity.courseSaleCount}"
 
         llLesson.setOnClickListener {
             if (null != itemEventListener)
