@@ -11,6 +11,7 @@ import com.hope.onlinestudy.fragment.*
 import com.hope.onlinestudy.model.HomeDataModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.Utils
+import com.hope.onlinestudy.utils.Utils.logs
 import kotlinx.android.synthetic.main.activity_start.*
 import org.jetbrains.anko.toast
 
@@ -74,7 +75,7 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
                 homeFragment.initBanner(homeDataModel?.data?.get(0)?.comSlideList!!)
                 homeFragment.setRecommandData(homeDataModel?.data?.get(0)?.recommended!!)
                 homeFragment.setExcelData(homeDataModel?.data?.get(0)?.excellent!!)
-
+                logs("tag","请求到数据")
                 classFragment.setTypeData(homeDataModel?.data?.get(0)?.menuList!!)
             }
         }
