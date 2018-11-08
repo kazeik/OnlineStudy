@@ -3,7 +3,7 @@ package com.hope.onlinestudy.model
 data class MessageModel(
         val courseId: Int,
         val courseName: String,
-        val createtime: Createtime,
+        val createtime: TimeModel,
         val id: Int,
         val messageInfo: String,
         val messageReadState: Int,

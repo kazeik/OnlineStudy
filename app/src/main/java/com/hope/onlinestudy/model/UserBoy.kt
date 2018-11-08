@@ -2,8 +2,8 @@ package com.hope.onlinestudy.model
 
 data class UserBoy(
         val buyCount: Int,
-        val buyTime: BuyTime,
-        val comUser: Any,
+        val buyTime: TimeModel,
+        val comUser: ComUser,
         val courseDesc: String,
         val courseGoods: Any,
         val courseGoodsId: Int,

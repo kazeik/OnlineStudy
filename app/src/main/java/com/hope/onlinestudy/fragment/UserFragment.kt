@@ -111,11 +111,11 @@ class UserFragment : LazyFragment(), View.OnClickListener {
 
             ApiUtils.toMyCenter -> {
                 val msgModel: MsgLengthModel = parserJson(body)
-                if (msgModel.data.get(0).messageSize != 0) {
+                if (msgModel.data?.get(0)?.messageSize != 0) {
                     tvMsgSize.visibility = View.VISIBLE
                     val badge = BadgeView(activity)
                     badge.setTargetView(tvMsgSize)
-                    badge.setBadgeCount(msgModel.data.get(0).messageSize)
+                    badge.setBadgeCount(msgModel.data?.get(0)?.messageSize!!)
                 }
             }
         }

@@ -45,6 +45,7 @@ class HttpNetUtils {
     fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, tag: String = "", listener: INetStrListener? = null) {
         requestData(method, url, tag, null, listener)
     }
+
     fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, _params: RequestParams? = null, listener: INetStrListener? = null) {
         var params = _params
         if (null == params)
@@ -135,7 +136,10 @@ class HttpNetUtils {
                     }
                 val body = responseInfo.result
                 logs("tag", body)
-                listener?.getNetStr(getUserTag().toString(), body)
+                if (!isGoodJson(body)) {
+                    listener?.netError(getUserTag().toString(), "服务器返回数据出错：json解析出错", ClassCastException("json解析出错"))
+                } else
+                    listener?.getNetStr(getUserTag().toString(), body)
             }
 
             override fun onFailure(e: HttpException, s: String) {

@@ -5,7 +5,6 @@ import com.hope.lib.iter.OnItemEventListener
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.ExamAdapter
 import com.hope.onlinestudy.base.BaseFragment
-import com.hope.onlinestudy.model.ExamModel
 import kotlinx.android.synthetic.main.layout_recyclerview.*
 
 /**
@@ -18,14 +17,14 @@ class ExamDoneFragment : BaseFragment() ,OnItemEventListener{
     override fun onItemEvent(pos: Int) {
     }
 
-    private val examAdapter:ExamAdapter<ExamModel> by lazy { ExamAdapter<ExamModel>() }
+//    private val examAdapter:ExamAdapter<ExamModel> by lazy { ExamAdapter<ExamModel>() }
     override fun initView(): Int {
         return R.layout.layout_recyclerview
     }
 
     override fun bindData() {
-        rcvList.adapter = examAdapter
+//        rcvList.adapter = examAdapter
         rcvList.layoutManager = LinearLayoutManager(activity)
-        examAdapter.itemEventListener =this
+//        examAdapter.itemEventListener =this
     }
 }

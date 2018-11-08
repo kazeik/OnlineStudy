@@ -1,6 +1,6 @@
 package com.hope.onlinestudy.model
 
-data class BuyTime(
+data class TimeModel(
         val date: Int,
         val day: Int,
         val hours: Int,

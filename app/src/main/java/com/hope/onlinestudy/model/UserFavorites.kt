@@ -1,7 +1,7 @@
 package com.hope.onlinestudy.model
 
 data class UserFavorites(
-        val addTime: AddTime,
+        val addTime: TimeModel,
         val comUser: ComUser,
         val courseDesc: String,
         val courseGoodsId: Int,

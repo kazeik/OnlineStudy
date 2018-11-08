@@ -93,11 +93,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_1"
+            android:visibility="gone"
             android:background="@color/linegray_color1" />
 
         <RelativeLayout
             android:id="@+id/rlZy"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="@dimen/dp_60">
 
             <TextView
