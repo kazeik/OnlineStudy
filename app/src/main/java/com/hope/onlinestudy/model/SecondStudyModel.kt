@@ -1,7 +1,7 @@
 package com.hope.onlinestudy.model
 
-data class MenuModel(
-        val secondStudySpecialty: List<SecondStudyModel>,
+data class SecondStudyModel(
+        val secondStudySpecialty: List<Any>,
         val specialtyDesc: String,
         val specialtyFullcode: String,
         val specialtyFullname: String,

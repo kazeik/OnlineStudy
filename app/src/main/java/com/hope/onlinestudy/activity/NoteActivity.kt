@@ -21,6 +21,7 @@ class NoteActivity : BaseActivity(), OnItemEventListener, View.OnClickListener {
     }
 
     override fun onItemEvent(pos: Int) {
+        val noteModel: EduNote = model?.data?.get(0)?.eduNoteList?.get(pos)!!
     }
 
     override fun getLayoutView(): Int {
@@ -28,6 +29,7 @@ class NoteActivity : BaseActivity(), OnItemEventListener, View.OnClickListener {
     }
 
     private val adapter: NoteAdapter<EduNote> by lazy { NoteAdapter<EduNote>() }
+    private var model: NoteListModel? = null
     override fun initData() {
         tv_title.setText("我的笔记")
         iv_backup.setOnClickListener(this)
@@ -44,8 +46,8 @@ class NoteActivity : BaseActivity(), OnItemEventListener, View.OnClickListener {
         super.getNetStr(tag, body)
         when (tag) {
             ApiUtils.toMyNote -> {
-                val model: NoteListModel = parserJson(body)
-                adapter.setDataEntityList(model.data?.get(0)?.eduNoteList!!)
+                model = parserJson(body)
+                adapter.setDataEntityList(model?.data?.get(0)?.eduNoteList!!)
             }
         }
     }

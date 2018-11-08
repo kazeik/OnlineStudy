@@ -78,9 +78,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
             override fun onItemEvent(pos: Int) {
             }
         }
-
-        activity?.showDialog()
-        apiInter.sigleRequest(ApiUtils.toAppHomePage)
     }
 
 
@@ -94,19 +91,15 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
         slider.stopAutoPlay()
     }
 
-    override fun getNetStr(tag: String, body: String) {
-        super.getNetStr(tag, body)
-        when (tag) {
-            ApiUtils.toAppHomePage -> {
-                val model: HomeDataModel = parserJson(body)
-                initBanner(model.data?.get(0)?.comSlideList!!)
-                commandAdapter.setDataEntityList(model.data?.get(0)?.recommended!!)
-                excelAdapter.setDataEntityList(model.data?.get(0)?.excellent!!)
-            }
-        }
+    fun setRecommandData(commandData:List<LessonItemModel>){
+        commandAdapter.setDataEntityList(commandData)
     }
 
-    private fun initBanner(data: List<ComSlide>) {
+    fun setExcelData(excelData:List<LessonItemModel>){
+        excelAdapter.setDataEntityList(excelData)
+    }
+
+    fun initBanner(data: List<ComSlide>) {
         val list = ArrayList<String>()
         for (item in data) {
             list.add("${ApiUtils.imgUrl}${item.slideImg}")

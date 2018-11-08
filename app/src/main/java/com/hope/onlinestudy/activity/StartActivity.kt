@@ -8,7 +8,9 @@ import com.hope.onlinestudy.base.BaseActivity
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.FtPagerAdapter
 import com.hope.onlinestudy.fragment.*
+import com.hope.onlinestudy.model.HomeDataModel
 import com.hope.onlinestudy.utils.ApiUtils
+import com.hope.onlinestudy.utils.Utils
 import kotlinx.android.synthetic.main.activity_start.*
 import org.jetbrains.anko.toast
 
@@ -30,6 +32,9 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
 
     private val fmList: MutableList<Fragment> by lazy { ArrayList<Fragment>() }
     private var firstTime: Long = 0
+    private val homeFragment: HomeFragment by lazy { HomeFragment() }
+    private val classFragment: ClassifyFragment by lazy { ClassifyFragment() }
+    private var homeDataModel: HomeDataModel? = null
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
         when (checkedId) {
@@ -46,8 +51,8 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
 
     override fun initData() {
 //        fmList.add(WebFragment.instance(ApiUtils.toAppHomePage))
-        fmList.add(HomeFragment())
-        fmList.add(ClassifyFragment())
+        fmList.add(homeFragment)
+        fmList.add(classFragment)
         fmList.add(WebFragment.instance(ApiUtils.toAppExam))
         fmList.add(UserFragment())
 
@@ -56,6 +61,23 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
         vfpMain.offscreenPageLimit = 4
         vfpMain.setOnPageChangeListener(this)
         gr_bottom.setOnCheckedChangeListener(this)
+
+        showDialog()
+        apiInter.sigleRequest(ApiUtils.toAppHomePage)
+    }
+
+    override fun getNetStr(tag: String, body: String) {
+        super.getNetStr(tag, body)
+        when (tag) {
+            ApiUtils.toAppHomePage -> {
+                homeDataModel = Utils.parserJson(body)
+                homeFragment.initBanner(homeDataModel?.data?.get(0)?.comSlideList!!)
+                homeFragment.setRecommandData(homeDataModel?.data?.get(0)?.recommended!!)
+                homeFragment.setExcelData(homeDataModel?.data?.get(0)?.excellent!!)
+
+                classFragment.setTypeData(homeDataModel?.data?.get(0)?.menuList!!)
+            }
+        }
     }
 
     override fun onKeyDown(paramInt: Int, paramKeyEvent: KeyEvent): Boolean {

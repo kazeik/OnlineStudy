@@ -6,4 +6,11 @@
     tools:context=".fragment.ClassifyFragment">
 
     <include layout="@layout/view_title" />
+
+    <ExpandableListView
+        android:id="@+id/elvExpand"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:childIndicator="@null"
+        android:groupIndicator="@null"/>
 </LinearLayout>
