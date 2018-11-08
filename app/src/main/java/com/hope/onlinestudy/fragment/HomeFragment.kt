@@ -18,7 +18,6 @@ import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.layout_homepage.*
 import kotlinx.android.synthetic.main.view_title.*
-import org.jetbrains.anko.support.v4.act
 
 
 /**

@@ -1,5 +1,18 @@
 package com.hope.onlinestudy.model
 
+/**
+ * 消息
+ * @property courseId Int
+ * @property courseName String
+ * @property createtime TimeModel
+ * @property id Int
+ * @property messageInfo String
+ * @property messageReadState Int
+ * @property messageState Int
+ * @property orderId Long
+ * @property userId Int
+ * @constructor
+ */
 data class MessageModel(
         val courseId: Int,
         val courseName: String,

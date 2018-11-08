@@ -1,5 +1,20 @@
 package com.hope.onlinestudy.model
 
+/**
+ * 订单
+ * @property count Int
+ * @property courseGoodsId Int
+ * @property createtime TimeModel
+ * @property eduOrderId Int
+ * @property orderId String
+ * @property orderMoney String
+ * @property orderName String
+ * @property orderState Int
+ * @property orderUnitMoney String
+ * @property updatetime TimeModel
+ * @property userId Int
+ * @constructor
+ */
 data class OrderModel(
         val count: Int,
         val courseGoodsId: Int,

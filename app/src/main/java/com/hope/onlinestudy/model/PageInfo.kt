@@ -1,5 +1,26 @@
 package com.hope.onlinestudy.model
 
+/**
+ * 分页
+ * @property endRow Int
+ * @property firstPage Int
+ * @property hasNextPage Boolean
+ * @property hasPreviousPage Boolean
+ * @property isFirstPage Boolean
+ * @property isLastPage Boolean
+ * @property lastPage Int
+ * @property navigatePages Int
+ * @property navigatepageNums List<Int>
+ * @property nextPage Int
+ * @property pageNum Int
+ * @property pageSize Int
+ * @property pages Int
+ * @property prePage Int
+ * @property size Int
+ * @property startRow Int
+ * @property total Int
+ * @constructor
+ */
 data class PageInfo(
         val endRow: Int,
         val firstPage: Int,

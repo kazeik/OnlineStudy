@@ -7,7 +7,7 @@ import java.io.Serializable
  * @author hope.chen
  *         QQ:77132995 email:kazeik@163.com
  *         2018 11 05 23:03
- * 类说明:
+ * 类说明: 用户模型
  */
 class UserInfoModel : Serializable {
     var cardPoint: String? = null
