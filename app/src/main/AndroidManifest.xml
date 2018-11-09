@@ -54,7 +54,10 @@
             android:name="UMENG_CHANNEL"
             android:value="study" />
 
-        <activity android:name=".activity.NoteActivity"></activity>
+        <activity android:name=".activity.NoteActivity" />
+        <activity
+            android:name=".activity.SearchActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
     </application>
 
 </manifest>

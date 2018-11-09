@@ -1,7 +1,7 @@
 package com.hope.onlinestudy.model
 
 /**
- *
+ * 单个课程
  * @property addTime TimeModel
  * @property comUser ComUser
  * @property courseDesc String 课程详情
@@ -53,7 +53,7 @@ data class LessonItemModel(
         val recommendStatus: String,
         val salePoint: String,
         val specialtyId: String,
-        val starLevel: String,
+        val starLevel: Float,
         val statusDesc: String,
         val studyCount: String,
         val studySpecialty: StudySpecialty

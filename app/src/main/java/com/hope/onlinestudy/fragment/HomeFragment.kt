@@ -1,11 +1,13 @@
 package com.hope.onlinestudy.fragment
 
 
+import android.content.Intent
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.hope.lib.iter.OnItemEventListener
 import com.hope.onlinestudy.R
+import com.hope.onlinestudy.activity.SearchActivity
 import com.hope.onlinestudy.adapter.HomeDataAdapter
 import com.hope.onlinestudy.base.BaseFragment
 import com.hope.onlinestudy.img.GlideImageLoader
@@ -27,8 +29,7 @@ import kotlinx.android.synthetic.main.view_title.*
 class HomeFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.iv_right -> {
-            }
+            R.id.iv_right -> startActivity(Intent(activity, SearchActivity::class.java))
         }
     }
 
@@ -91,11 +92,11 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
         slider.stopAutoPlay()
     }
 
-    fun setRecommandData(commandData:List<LessonItemModel>){
+    fun setRecommandData(commandData: List<LessonItemModel>) {
         commandAdapter.setDataEntityList(commandData)
     }
 
-    fun setExcelData(excelData:List<LessonItemModel>){
+    fun setExcelData(excelData: List<LessonItemModel>) {
         excelAdapter.setDataEntityList(excelData)
     }
 

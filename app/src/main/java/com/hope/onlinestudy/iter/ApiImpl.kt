@@ -1,5 +1,6 @@
 package com.hope.onlinestudy.iter
 
+import android.text.TextUtils
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.HttpNetUtils
 import com.lidroid.xutils.http.RequestParams
@@ -11,6 +12,14 @@ import com.lidroid.xutils.http.client.HttpRequest
  * 类说明:
  */
 class ApiImpl(private val callback: INetStrListener) : ApiInter {
+    override fun searchlesson(lessonName: String?) {
+        val params = RequestParams()
+        if (!TextUtils.isEmpty(lessonName)) {
+            params.addBodyParameter("name", lessonName)
+        }
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.POST, ApiUtils.searchLesson, params, callback)
+    }
+
     override fun sigleRequest(tag: String) {
         HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, tag, callback)
     }

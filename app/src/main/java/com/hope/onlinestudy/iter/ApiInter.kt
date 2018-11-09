@@ -23,11 +23,12 @@ interface ApiInter {
     fun getmessage(type: String, page: Int, tag: String)
 
 
-    fun changepass(oldPass:String,newpass:String)
+    fun changepass(oldPass: String, newpass: String)
 
 
-    fun sigleRequest(tag:String)
+    fun sigleRequest(tag: String)
 
-    fun startRegister(phone:String,code:String)
+    fun startRegister(phone: String, code: String)
 
+    fun searchlesson(lessonName: String?)
 }
