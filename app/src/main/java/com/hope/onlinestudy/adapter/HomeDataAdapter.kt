@@ -39,6 +39,12 @@ class HomeDataAdapter<A>(private val context: Context) : BaseAdapter<A>() {
         tvLessonName.text = entity.courseGoodsName
         tvPlayer.text = "已销售:${entity.courseSaleCount}"
 
+        tvPrivate.text = if (entity.isfree == 0) {
+            "收费"
+        } else {
+            ""
+        }
+
         llLesson.setOnClickListener {
             if (null != itemEventListener)
                 itemEventListener?.onItemEvent(position)

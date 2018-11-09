@@ -44,7 +44,7 @@ data class LessonItemModel(
         val courseType: String,
         val dod: String,
         val inviteCode: String,
-        val isfree: String,
+        val isfree: Int,
         val isopen: String,
         val lessionNum: String,
         val pageViewcount: String,
