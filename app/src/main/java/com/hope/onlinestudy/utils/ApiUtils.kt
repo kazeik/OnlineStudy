@@ -33,6 +33,8 @@ object ApiUtils {
     val toMyPoint = "apphome/toMyPoint"
     val toMyOrder = "apphome/toMyOrder"
     val toMyCenter = "apphome/toMyCenter"
-
+    //课程搜索
     val searchLesson = "apphome/applikecoursegoodspaging"
+
+    val delnote = "usernote/deleteNote"
 }

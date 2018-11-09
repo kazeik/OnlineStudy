@@ -31,4 +31,6 @@ interface ApiInter {
     fun startRegister(phone: String, code: String)
 
     fun searchlesson(lessonName: String?)
+
+    fun delNote(noteId:String)
 }

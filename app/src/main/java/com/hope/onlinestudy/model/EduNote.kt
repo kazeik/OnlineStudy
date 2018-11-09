@@ -6,7 +6,7 @@ data class EduNote(
         val courseId: Int,
         val courseName: String,
         val createtime: TimeModel,
-        val id: Int,
+        val id: String,
         val noteDate: String,
         val noteInfo: String,
         val noteTime: String,

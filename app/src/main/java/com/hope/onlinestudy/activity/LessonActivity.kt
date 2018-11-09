@@ -36,6 +36,8 @@ class LessonActivity : BaseActivity(), View.OnClickListener {
     private val itemFragments: ArrayList<Fragment> by lazy { ArrayList<Fragment>() }
     override fun initData() {
         tv_title.setText("我的课程")
+        iv_backup.setOnClickListener(this)
+
         itemFragments.add(addLessonFragment)
         itemFragments.add(userBuyFragment)
 

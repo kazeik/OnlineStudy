@@ -12,6 +12,12 @@ import com.lidroid.xutils.http.client.HttpRequest
  * 类说明:
  */
 class ApiImpl(private val callback: INetStrListener) : ApiInter {
+    override fun delNote(noteId: String) {
+        val params = RequestParams()
+        params.addBodyParameter("eduNoteId",noteId)
+        HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.POST,ApiUtils.delnote,params,callback)
+    }
+
     override fun searchlesson(lessonName: String?) {
         val params = RequestParams()
         if (!TextUtils.isEmpty(lessonName)) {
@@ -19,6 +25,7 @@ class ApiImpl(private val callback: INetStrListener) : ApiInter {
         }
         HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.POST, ApiUtils.searchLesson, params, callback)
     }
+
 
     override fun sigleRequest(tag: String) {
         HttpNetUtils.getInstance().requestData(HttpRequest.HttpMethod.GET, tag, callback)

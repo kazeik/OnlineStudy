@@ -4,6 +4,6 @@ data class NoteModel(
         /**
          * 用户笔记
          */
-        val eduNoteList: List<EduNote>,
+        val eduNoteList: ArrayList<EduNote>,
         val pageInfo: PageInfo
 )
