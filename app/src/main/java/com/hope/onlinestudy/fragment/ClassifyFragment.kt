@@ -1,12 +1,9 @@
 package com.hope.onlinestudy.fragment
 
 
-import android.app.Activity
 import android.view.View
 import com.hope.onlinestudy.R
-import com.hope.onlinestudy.activity.StartActivity
 import com.hope.onlinestudy.adapter.ClassifyAdapter
-import com.hope.onlinestudy.base.BaseFragment
 import com.hope.onlinestudy.base.LazyFragment
 import com.hope.onlinestudy.model.MenuModel
 import kotlinx.android.synthetic.main.fragment_classify.*

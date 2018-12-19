@@ -30,7 +30,7 @@ class OrderActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        tv_title.setText("我的订单")
+        tv_title.text = "我的订单"
         iv_backup.setOnClickListener(this)
         tvObil.setOnClickListener(this)
         tvIsPay.setOnClickListener(this)

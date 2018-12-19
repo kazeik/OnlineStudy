@@ -35,7 +35,7 @@ class HomeDataAdapter<A>(private val context: Context) : BaseAdapter<A>() {
         val llLesson = holder.getViewById<LinearLayout>(R.id.llLesson)
 
         val entity = dataList?.get(position) as LessonItemModel
-        Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").into(ivLessonIcon)
+        Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").asBitmap().into(ivLessonIcon)
         tvLessonName.text = entity.courseGoodsName
         tvPlayer.text = "已销售:${entity.courseSaleCount}"
 

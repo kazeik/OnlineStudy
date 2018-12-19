@@ -14,9 +14,8 @@ class FtPagerAdapter(fm: FragmentManager, private var mData: List<Fragment>) : F
 
     override fun getItem(position: Int): Fragment {
         if (null != listener)
-            listener!!.onPageIndex(position)
+            listener?.onPageIndex(position)
         return mData[position]
-
     }
 
     override fun getCount(): Int {

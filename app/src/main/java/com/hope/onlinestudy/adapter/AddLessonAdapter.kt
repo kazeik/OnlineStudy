@@ -10,7 +10,6 @@ import com.hope.lib.iter.OnItemEventListener
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseAdapter
 import com.hope.onlinestudy.base.BaseViewHolder
-import com.hope.onlinestudy.model.UserBoy
 import com.hope.onlinestudy.model.UserFavorites
 import com.hope.onlinestudy.utils.ApiUtils
 
@@ -43,7 +42,7 @@ class AddLessonAdapter<A>(private val context: Context) : BaseAdapter<A>() {
         }
         lessonPlyaer.text = "已销售：${entity.salePoint}"
         lessonTitleStr.text = entity.courseGoodsName
-        Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").into(lessonIcon)
+        Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").asBitmap().into(lessonIcon)
 
         lessionItem.setOnClickListener {
             if (null != itemListener) {

@@ -4,7 +4,6 @@ import android.support.v7.widget.GridLayoutManager
 import com.hope.lib.iter.OnItemEventListener
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.AddLessonAdapter
-import com.hope.onlinestudy.adapter.BuyLessonAdapter
 import com.hope.onlinestudy.base.BaseFragment
 import com.hope.onlinestudy.model.UserFavorites
 import kotlinx.android.synthetic.main.layout_recyclerview.*

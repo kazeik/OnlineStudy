@@ -34,7 +34,7 @@ class ExamineFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
     }
 
     override fun bindData() {
-        tv_title.setText("我的考试")
+        tv_title.text = "我的考试"
         iv_backup.visibility = View.GONE
         itemFragments.add(ExamingFragment())
         itemFragments.add(ExamStartingFragment())

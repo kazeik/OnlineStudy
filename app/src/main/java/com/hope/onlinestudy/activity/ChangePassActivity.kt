@@ -22,7 +22,7 @@ class ChangePassActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        tv_title.setText("修改密码")
+        tv_title.text = "修改密码"
         iv_backup.setOnClickListener(this)
     }
 

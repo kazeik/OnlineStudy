@@ -29,6 +29,6 @@ abstract class BaseAdapter<A> : RecyclerView.Adapter<BaseViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return if (dataList == null || dataList!!.isEmpty()) 0 else dataList!!.size
+        return if (dataList == null || dataList?.isEmpty()!!) 0 else dataList?.size!!
     }
 }

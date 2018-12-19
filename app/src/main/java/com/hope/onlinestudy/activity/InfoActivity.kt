@@ -31,7 +31,7 @@ class InfoActivity : BaseActivity(), View.OnClickListener {
             usermodel = data as UserInfoModel
         }
 
-        Glide.with(this).load("${ApiUtils.imgUrl}${usermodel?.userImg}")
+        Glide.with(this).load("${ApiUtils.imgUrl}${usermodel?.userImg}").asBitmap()
                 .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).override(100, 100)
                 .transform(GlideCircleTransform(this)).into(ivUserIcon)
         tvUserAccount.text = usermodel?.username

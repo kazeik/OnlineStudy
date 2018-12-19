@@ -17,7 +17,7 @@ class ForgetPassActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        tv_title.setText("忘记密码")
+        tv_title.text = "忘记密码"
     }
 
 }

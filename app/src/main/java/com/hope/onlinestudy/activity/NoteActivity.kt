@@ -37,7 +37,7 @@ class NoteActivity : BaseActivity(), OnItemEventListener, View.OnClickListener {
     private val adapter: NoteAdapter<EduNote> by lazy { NoteAdapter<EduNote>() }
     private var model: NoteListModel? = null
     override fun initData() {
-        tv_title.setText("我的笔记")
+        tv_title.text = "我的笔记"
         iv_backup.setOnClickListener(this)
 
         rcvList.layoutManager = LinearLayoutManager(this)

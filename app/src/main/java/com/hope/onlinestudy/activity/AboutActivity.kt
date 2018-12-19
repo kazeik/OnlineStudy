@@ -17,7 +17,7 @@ class AboutActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        tv_title.setText("关于我们")
+        tv_title.text = "关于我们"
     }
 
 }

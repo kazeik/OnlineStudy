@@ -24,7 +24,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        tv_title.setText("注册")
+        tv_title.text = "注册"
         btnRegisterSubmit.setOnClickListener(this)
         iv_backup.setOnClickListener(this)
         btnCode.setOnClickListener(this)

@@ -2,7 +2,6 @@ package com.hope.onlinestudy.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.KeyEvent
 import android.webkit.*
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseFragment
@@ -60,8 +59,8 @@ class WebFragment : BaseFragment() {
 
         //支持屏幕缩放
         webSettings.setSupportZoom(true)
-        webSettings.setBuiltInZoomControls(true)
-        webSettings.setDisplayZoomControls(false)
+        webSettings.builtInZoomControls = true
+        webSettings.displayZoomControls = false
 
 
     }

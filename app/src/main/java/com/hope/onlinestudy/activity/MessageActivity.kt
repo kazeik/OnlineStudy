@@ -31,7 +31,7 @@ class MessageActivity : BaseActivity(), View.OnClickListener {
     private val tabInndicat: Array<String> by lazy { resources.getStringArray(R.array.messagetitle) }
     private val itemFragments: ArrayList<Fragment> by lazy { ArrayList<Fragment>() }
     override fun initData() {
-        tv_title.setText("我的消息")
+        tv_title.text = "我的消息"
         iv_backup.setOnClickListener(this)
 
         itemFragments.add(msgFragment)

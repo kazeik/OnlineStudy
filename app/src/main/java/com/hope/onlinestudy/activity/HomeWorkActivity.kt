@@ -25,7 +25,7 @@ class HomeWorkActivity : BaseActivity(), View.OnClickListener,OnItemEventListene
 
 //    private val adapter: HomeWorkAdapter<HomeWorkModel> by lazy { HomeWorkAdapter<HomeWorkModel>() }
     override fun initData() {
-        tv_title.setText("我的作业")
+    tv_title.text = "我的作业"
         iv_backup.setOnClickListener(this)
 
 //        rcvList.adapter = adapter

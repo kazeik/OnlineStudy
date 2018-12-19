@@ -30,7 +30,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     override fun initData() {
-        tv_title.setText("登录")
+        tv_title.text = "登录"
         btnSubmit.setOnClickListener(this)
         iv_backup.setOnClickListener(this)
 

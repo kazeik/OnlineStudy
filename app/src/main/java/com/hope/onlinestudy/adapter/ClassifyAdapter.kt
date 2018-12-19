@@ -7,7 +7,6 @@ import android.widget.BaseExpandableListAdapter
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.model.MenuModel
 import com.hope.onlinestudy.model.TextViewHolder
-import com.hope.onlinestudy.utils.Utils.logs
 
 
 /**
@@ -21,7 +20,6 @@ class ClassifyAdapter : BaseExpandableListAdapter() {
 
     fun setData(menuList: List<MenuModel>) {
         this.menuListData = menuList
-        logs("tag", "到了")
         notifyDataSetChanged()
     }
 
@@ -46,16 +44,15 @@ class ClassifyAdapter : BaseExpandableListAdapter() {
             view?.setTag(holder)
         } else {
             view = convertView
-            holder = view.getTag() as TextViewHolder
+            holder = view.tag as TextViewHolder
         }
-        logs("tag","父类到了")
         holder.textView?.text = menuListData?.get(groupPosition)?.specialtyName
         return view!!
     }
 
     override fun getChildrenCount(groupPosition: Int): Int {
-        return if (menuListData == null || menuListData!!.isEmpty() || menuListData?.get(groupPosition)?.secondStudySpecialty == null
-                || menuListData?.get(groupPosition)?.secondStudySpecialty!!.isEmpty()) {
+        return if (menuListData == null || menuListData?.isEmpty()!! || menuListData?.get(groupPosition)?.secondStudySpecialty == null
+                || menuListData?.get(groupPosition)?.secondStudySpecialty?.isEmpty()!!) {
             0
         } else {
             menuListData?.get(groupPosition)?.secondStudySpecialty?.size!!
@@ -76,12 +73,11 @@ class ClassifyAdapter : BaseExpandableListAdapter() {
         if (convertView == null) {
             view = LayoutInflater.from(parent?.context!!).inflate(R.layout.layout_textview, null)
             holder = TextViewHolder(view)
-            view?.setTag(holder)
+            view?.tag = holder
         } else {
             view = convertView
             holder = view.getTag() as TextViewHolder
         }
-        logs("tag","子类到了")
         holder.textView?.text = menuListData?.get(groupPosition)?.secondStudySpecialty?.get(childPosition)?.specialtyName
         return view!!
     }
@@ -91,7 +87,7 @@ class ClassifyAdapter : BaseExpandableListAdapter() {
     }
 
     override fun getGroupCount(): Int {
-        return if (menuListData == null || menuListData!!.isEmpty()) {
+        return if (menuListData == null || menuListData?.isEmpty()!!) {
             0
         } else {
             menuListData?.size!!

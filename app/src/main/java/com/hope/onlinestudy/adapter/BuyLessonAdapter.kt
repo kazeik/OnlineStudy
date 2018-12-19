@@ -19,7 +19,7 @@ import com.hope.onlinestudy.utils.ApiUtils
  *         2018 10 27 13:46
  * 类说明:
  */
-class BuyLessonAdapter<A>(private val context:Context) : BaseAdapter<A>() {
+class BuyLessonAdapter<A>(private val context: Context) : BaseAdapter<A>() {
     internal var itemListener: OnItemEventListener? = null
     override fun getLayoutView(): Int {
         return R.layout.layout_home_grid
@@ -33,12 +33,12 @@ class BuyLessonAdapter<A>(private val context:Context) : BaseAdapter<A>() {
         val lessonPrivate = holder.getViewById<TextView>(R.id.tvPrivate)
         val lessionItem = holder.getViewById<LinearLayout>(R.id.llLesson)
 
-        val entity:UserBoy = dataList?.get(position) as UserBoy
+        val entity: UserBoy = dataList?.get(position) as UserBoy
         lessonTitleStr.text = entity.courseGoodsName
 
         lessonPlyaer.text = "购买数量：${entity.salePoint}"
 
-        Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").into(lessonIcon)
+        Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").asBitmap().into(lessonIcon)
 
         lessionItem.setOnClickListener {
             if (null != itemListener) {

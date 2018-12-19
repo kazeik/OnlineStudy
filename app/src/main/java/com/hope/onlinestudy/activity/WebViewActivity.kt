@@ -2,7 +2,6 @@ package com.hope.onlinestudy.activity
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.text.TextUtils
 import android.view.KeyEvent
 import android.webkit.*
 import com.hope.onlinestudy.R
@@ -56,11 +55,11 @@ class WebViewActivity : BaseActivity() {
 
         //支持屏幕缩放
         webSettings.setSupportZoom(true)
-        webSettings.setBuiltInZoomControls(true)
-        webSettings.setDisplayZoomControls(false)
+        webSettings.builtInZoomControls = true
+        webSettings.displayZoomControls = false
     }
 
-    override public fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         if (wvView.canGoBack() && keyCode == KeyEvent.KEYCODE_BACK) {//点击返回按钮的时候判断有没有上一页
             wvView.goBack() // goBack()表示返回webView的上一页面
             return true

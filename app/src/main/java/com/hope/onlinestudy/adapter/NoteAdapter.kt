@@ -1,5 +1,6 @@
 package com.hope.onlinestudy.adapter
 
+import android.annotation.SuppressLint
 import android.widget.TextView
 import com.hope.lib.iter.OnItemEventListener
 import com.hope.onlinestudy.R
@@ -20,6 +21,7 @@ class NoteAdapter<A> : BaseAdapter<A>() {
         return R.layout.adapter_layout_note
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         val tvNoteBody = holder.getViewById<TextView>(R.id.tvNoteBody)
         val tvNoteClass = holder.getViewById<TextView>(R.id.tvNoteClass)

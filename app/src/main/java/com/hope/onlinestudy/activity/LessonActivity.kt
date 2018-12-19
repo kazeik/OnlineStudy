@@ -6,10 +6,9 @@ import android.view.View
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.TabVpAdapter
 import com.hope.onlinestudy.base.BaseActivity
-import com.hope.onlinestudy.fragment.UserFavoritesFragment
 import com.hope.onlinestudy.fragment.UserBuyFragment
+import com.hope.onlinestudy.fragment.UserFavoritesFragment
 import com.hope.onlinestudy.model.LessonListModel
-import com.hope.onlinestudy.model.LessonModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.layout_tab_vfp.*
@@ -35,7 +34,7 @@ class LessonActivity : BaseActivity(), View.OnClickListener {
     private val tabInndicat: Array<String> by lazy { resources.getStringArray(R.array.lessonarray) }
     private val itemFragments: ArrayList<Fragment> by lazy { ArrayList<Fragment>() }
     override fun initData() {
-        tv_title.setText("我的课程")
+        tv_title.text = "我的课程"
         iv_backup.setOnClickListener(this)
 
         itemFragments.add(addLessonFragment)

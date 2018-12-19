@@ -12,10 +12,8 @@ import com.hope.onlinestudy.adapter.HomeDataAdapter
 import com.hope.onlinestudy.base.BaseFragment
 import com.hope.onlinestudy.img.GlideImageLoader
 import com.hope.onlinestudy.model.ComSlide
-import com.hope.onlinestudy.model.HomeDataModel
 import com.hope.onlinestudy.model.LessonItemModel
 import com.hope.onlinestudy.utils.ApiUtils
-import com.hope.onlinestudy.utils.Utils.parserJson
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.layout_homepage.*
@@ -41,7 +39,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
     private val excelAdapter: HomeDataAdapter<LessonItemModel> by lazy { HomeDataAdapter<LessonItemModel>(activity!!) }
 
     override fun bindData() {
-        tv_title.setText("首页")
+        tv_title.text = "首页"
         iv_backup.visibility = View.GONE
         iv_right.visibility = View.VISIBLE
         iv_right.setImageResource(R.drawable.sousuo)
@@ -62,7 +60,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
         //设置指示器位置（当banner模式中有指示器时）
         slider.setIndicatorGravity(BannerConfig.CENTER)
 
-        rcvCommand.setNestedScrollingEnabled(false)
+        rcvCommand.isNestedScrollingEnabled = false
         rcvCommand.setHasFixedSize(true)
         rcvCommand.layoutManager = GridLayoutManager(activity, 2)
         rcvCommand.adapter = commandAdapter

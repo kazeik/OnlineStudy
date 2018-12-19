@@ -38,7 +38,7 @@ class SearchAdapter<A>(private val context: Context) : BaseAdapter<A>() {
         val tvSale = holder.getViewById<TextView>(R.id.tvSale)
 
         val entity = dataList?.get(position) as LessonItemModel
-        Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").into(ivLessonIcon)
+        Glide.with(context).load("${ApiUtils.imgUrl}${entity.courseImage}").asBitmap().into(ivLessonIcon)
         tvLessonName.text = entity.courseGoodsName.trim()
         tvSale.text = "已销售:${entity.courseSaleCount}"
         tvPlayer.text = "共${entity.lessionNum}课时"

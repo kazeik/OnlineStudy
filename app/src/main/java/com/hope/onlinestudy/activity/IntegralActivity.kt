@@ -26,7 +26,7 @@ class IntegralActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        tv_title.setText("我的积分")
+        tv_title.text = "我的积分"
         iv_backup.setOnClickListener(this)
 
         rcvList.layoutManager = LinearLayoutManager(this)

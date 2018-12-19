@@ -14,7 +14,7 @@ class TabVpAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     internal var fmList: List<Fragment>? = null
     internal var fmTitle: Array<String>? = null
     override fun getItem(position: Int): Fragment {
-        return fmList!![position]
+        return fmList?.get(position)!!
     }
 
     override fun getCount(): Int {
@@ -22,6 +22,6 @@ class TabVpAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     }
 
     override fun getPageTitle(position: Int): CharSequence {
-        return fmTitle!![position]
+        return fmTitle?.get(position)!!
     }
 }
