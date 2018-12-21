@@ -25,6 +25,6 @@ class MessageAdapter<A> : BaseAdapter<A>() {
         val tvTime = holder.getViewById<TextView>(R.id.tvMsgTime)
 
         tvTitle.text = entity.messageInfo
-        tvTime.text = TimeUtil.getDayByType(entity.createtime.time, TimeUtil.DATE_YMD_HMS)
+        tvTime.text = TimeUtil.getDayByType(entity.createtime, TimeUtil.DATE_YMD_HMS)
     }
 }

@@ -14,13 +14,13 @@ package com.hope.onlinestudy.model
  * @constructor
  */
 data class MessageModel(
-        val courseId: Int,
+        val courseId: String,
         val courseName: String,
-        val createtime: TimeModel,
+        val createtime: Long,
         val id: Int,
         val messageInfo: String,
         val messageReadState: Int,
         val messageState: Int,
-        val orderId: Long,
+        val orderId: String,
         val userId: Int
 )
