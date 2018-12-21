@@ -9,8 +9,9 @@ import com.hope.onlinestudy.base.BaseModel
  *         2018 12 21 12:30
  * 类说明:
  */
-class UserModel  {
+class UserModel {
     var statusCode: Int? = null
     var msg: String? = null
     var userId: String? = null
+    var jwtToken: String? = null
 }

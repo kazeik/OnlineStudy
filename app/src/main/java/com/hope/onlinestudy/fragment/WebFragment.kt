@@ -1,11 +1,16 @@
 package com.hope.onlinestudy.fragment
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
+import android.text.TextUtils
+import android.view.KeyEvent
 import android.webkit.*
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseFragment
 import com.hope.onlinestudy.utils.ApiUtils
+import com.hope.onlinestudy.utils.Utils.logs
 import kotlinx.android.synthetic.main.view_webview.*
 
 
@@ -50,7 +55,6 @@ class WebFragment : BaseFragment() {
             }
         }
         wvView.webViewClient = object : WebViewClient() {
-
         }
 
         val webSettings = wvView.settings
@@ -61,9 +65,19 @@ class WebFragment : BaseFragment() {
         webSettings.setSupportZoom(true)
         webSettings.builtInZoomControls = true
         webSettings.displayZoomControls = false
-
-
     }
+
+    fun injectIsParams(url: String): String {
+        if(!TextUtils.isEmpty(url) && !url.contains("xxxx=1")){
+            return if(url.contains("?")){
+                "${url}&xxx=1"
+            }else {
+                "${url}?xxx=1"
+            }
+        }
+        return url
+    }
+
 
 //    override public fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
 //        if (wvView.canGoBack() && keyCode == KeyEvent.KEYCODE_BACK) {//点击返回按钮的时候判断有没有上一页
@@ -73,12 +87,13 @@ class WebFragment : BaseFragment() {
 //        return super.onKeyDown(keyCode, event)
 //    }
 
-    /**
-     * JS调用android的方法
-     * @param str
-     * @return
-     */
-    @JavascriptInterface //仍然必不可少
-    public fun getClient(str: String) {
+
+        /**
+         * JS调用android的方法
+         * @param str
+         * @return
+         */
+        @JavascriptInterface //仍然必不可少
+        public fun getClient(str: String) {
+        }
     }
-}

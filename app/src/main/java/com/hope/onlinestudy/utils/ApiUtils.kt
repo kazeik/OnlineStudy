@@ -11,7 +11,7 @@ package com.hope.onlinestudy.utils
 object ApiUtils {
     val baseUrl = "http://zxserver.f3322.net:8080/study/"
     val imgUrl = "http://zxserver.f3322.net:8080/comm/"
-
+    var userToken: String? = null
     var userId: String? = null
     //    获取消息
     val toMyMsg = "api/toMyMsg"

@@ -44,10 +44,12 @@ class InfoActivity : BaseActivity(), View.OnClickListener {
         } else {
             ""
         }
-        tvTel.text = if (TextUtils.isEmpty(usermodel?.mobilephone)) "" else usermodel?.mobilephone
+        tvTel.text = if (TextUtils.isEmpty(usermodel?.mobilephone) || TextUtils.equals(
+                "null",
+                usermodel?.mobilephone
+            )
+        ) "" else usermodel?.mobilephone
         tvEmail.text = if (TextUtils.isEmpty(usermodel?.useremail)) "" else usermodel?.useremail
         tvSchool.text = if (TextUtils.isEmpty(usermodel?.companyName)) "" else usermodel?.companyName
-
     }
-
 }

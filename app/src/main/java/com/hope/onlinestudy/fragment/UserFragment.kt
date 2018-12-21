@@ -29,7 +29,7 @@ class UserFragment : LazyFragment(), View.OnClickListener {
     var model: ListUserModel? = null
 
     override fun lazyLoad() {
-        if(model == null) {
+        if (model == null) {
             activity?.showDialog()
             apiInter.getUserInfo(ApiUtils.userId!!)
         }

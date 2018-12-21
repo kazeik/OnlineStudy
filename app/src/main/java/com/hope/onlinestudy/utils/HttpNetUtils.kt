@@ -5,6 +5,7 @@ import com.google.gson.JsonParseException
 import com.google.gson.JsonParser
 import com.hope.onlinestudy.iter.INetStrListener
 import com.hope.onlinestudy.MainApplication
+import com.hope.onlinestudy.utils.ApiUtils.userToken
 import com.hope.onlinestudy.utils.Utils.logs
 import com.lidroid.xutils.HttpUtils
 import com.lidroid.xutils.exception.HttpException
@@ -31,7 +32,11 @@ class HttpNetUtils {
         getHttpUtils()
     }
 
-    fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, listener: INetStrListener? = null) {
+    fun requestData(
+        method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET,
+        url: String,
+        listener: INetStrListener? = null
+    ) {
         requestData(method, url, url, null, listener)
     }
 
@@ -42,11 +47,21 @@ class HttpNetUtils {
      * @param tag String
      * @param listener INetStrListener?
      */
-    fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, tag: String = "", listener: INetStrListener? = null) {
+    fun requestData(
+        method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET,
+        url: String,
+        tag: String = "",
+        listener: INetStrListener? = null
+    ) {
         requestData(method, url, tag, null, listener)
     }
 
-    fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, _params: RequestParams? = null, listener: INetStrListener? = null) {
+    fun requestData(
+        method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET,
+        url: String,
+        _params: RequestParams? = null,
+        listener: INetStrListener? = null
+    ) {
         var params = _params
         if (null == params)
             params = RequestParams()
@@ -61,7 +76,13 @@ class HttpNetUtils {
      * @param _params RequestParams?
      * @param listener INetStrListener?
      */
-    fun requestData(method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET, url: String, tag: String = "", _params: RequestParams? = null, listener: INetStrListener? = null) {
+    fun requestData(
+        method: HttpRequest.HttpMethod? = HttpRequest.HttpMethod.GET,
+        url: String,
+        tag: String = "",
+        _params: RequestParams? = null,
+        listener: INetStrListener? = null
+    ) {
         var params = _params
         if (null == params)
             params = RequestParams()
@@ -112,12 +133,15 @@ class HttpNetUtils {
         send(HttpRequest.HttpMethod.POST, apiUrl, params, tag, listener)
     }
 
-    private fun send(method: HttpRequest.HttpMethod?, apiUrl: String, params: RequestParams, tag: String, listener: INetStrListener?) {
+    private fun send(
+        method: HttpRequest.HttpMethod?,
+        apiUrl: String,
+        params: RequestParams,
+        tag: String,
+        listener: INetStrListener?
+    ) {
         if (tag != ApiUtils.login) {
-            val tempcookie = PreferencesUtils.getString(MainApplication.appContext!!, "cookie")
-            if (null != tempcookie)
-                params.addQueryStringParameter("userId", tempcookie)
-            params.addQueryStringParameter("logintype", "1")
+            params.addHeader("jwtToken", userToken)
         }
         val url = "${ApiUtils.baseUrl}$apiUrl"
         logs("tag", "url = $url")
