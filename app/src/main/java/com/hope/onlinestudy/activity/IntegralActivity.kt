@@ -5,11 +5,11 @@ import android.view.View
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.PointAdapter
 import com.hope.onlinestudy.base.BaseActivity
-import com.hope.onlinestudy.model.AllIntegralRule
 import com.hope.onlinestudy.model.PointListModel
 import com.hope.onlinestudy.model.PointModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.Utils.parserJson
+import com.hope.onlinestudy.view.RecycleViewDivider
 import kotlinx.android.synthetic.main.activity_integral.*
 import kotlinx.android.synthetic.main.view_title.*
 
@@ -21,7 +21,7 @@ class IntegralActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    private val adapter: PointAdapter<AllIntegralRule> by lazy { PointAdapter<AllIntegralRule>() }
+    private val adapter: PointAdapter<PointModel> by lazy { PointAdapter<PointModel>() }
     override fun getLayoutView(): Int {
         return R.layout.activity_integral
     }
@@ -31,6 +31,7 @@ class IntegralActivity : BaseActivity(), View.OnClickListener {
         iv_backup.setOnClickListener(this)
 
         rcvList.layoutManager = LinearLayoutManager(this)
+        rcvList.addItemDecoration(RecycleViewDivider(this,LinearLayoutManager.VERTICAL))
         rcvList.adapter = adapter
 
         getPoint()
@@ -45,7 +46,7 @@ class IntegralActivity : BaseActivity(), View.OnClickListener {
         super.getNetStr(tag, body)
         if (tag == ApiUtils.toMyPoint) {
             val model: PointListModel = parserJson(body)
-            adapter.setDataEntityList(model.data?.get(0)?.allIntegralRules!!)
+            adapter.setDataEntityList(model.list)
         }
     }
 }

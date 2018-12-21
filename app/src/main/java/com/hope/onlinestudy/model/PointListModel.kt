@@ -1,7 +1,10 @@
 package com.hope.onlinestudy.model
 
-import com.hope.onlinestudy.base.BaseModel
-
-class PointListModel   {
-    var data: List<PointModel>? = null
-}
+data class PointListModel(
+    val list: List<PointModel>,
+    val msg: String,
+    val shoopPoint: Int,
+    val statusCode: Int,
+    val studyPoint: Int,
+    val totalPage: Int
+)
