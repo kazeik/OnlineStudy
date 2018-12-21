@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btnLogin -> startOther(LoginActivity::class.java)
+            R.id.btnLogin -> startOther(LoginActivity::class.java,true)
             R.id.btnRegister -> startOther(RegisterActivity::class.java)
             R.id.tvForget -> startOther(ForgetPassActivity::class.java)
         }
