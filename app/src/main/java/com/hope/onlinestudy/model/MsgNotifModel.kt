@@ -1,7 +1,8 @@
 package com.hope.onlinestudy.model
 
-import com.hope.onlinestudy.base.BaseModel
-
-class MsgNotifModel : BaseModel() {
-    var data: List<MessageData>? = null
+class MsgNotifModel  {
+    var msgType:Int ?= 0
+    var statusCode:Int ?= 0
+    var msg :String?=null
+    var list: List<MessageModel>? = null
 }

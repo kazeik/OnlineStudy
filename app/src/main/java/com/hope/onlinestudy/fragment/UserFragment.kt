@@ -11,8 +11,8 @@ import com.hope.onlinestudy.R
 import com.hope.onlinestudy.activity.*
 import com.hope.onlinestudy.base.LazyFragment
 import com.hope.onlinestudy.img.GlideCircleTransform
-import com.hope.onlinestudy.model.ListUserModel
 import com.hope.onlinestudy.model.MsgLengthModel
+import com.hope.onlinestudy.model.ListUserModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.ApiUtils.imgUrl
 import com.hope.onlinestudy.utils.Utils.parserJson
@@ -26,13 +26,12 @@ import com.hope.onlinestudy.view.BadgeView
  *
  */
 class UserFragment : LazyFragment(), View.OnClickListener {
-    private var userModel: ListUserModel? = null
-    override fun lazyLoad() {
-        if (userModel == null) {
-            activity?.showDialog()
-            apiInter.sigleRequest(ApiUtils.toMyInfo)
+    var model: ListUserModel? = null
 
-            apiInter.sigleRequest(ApiUtils.toMyCenter)
+    override fun lazyLoad() {
+        if(model == null) {
+            activity?.showDialog()
+            apiInter.getUserInfo(ApiUtils.userId!!)
         }
     }
 
@@ -41,17 +40,23 @@ class UserFragment : LazyFragment(), View.OnClickListener {
         when (v?.id) {
             R.id.rlChangePass -> startActivity(Intent(activity, ChangePassActivity::class.java))
             R.id.rlInfo -> {
-                intt.putExtra("data", userModel?.data?.get(0))
+                intt.putExtra("data", model?.data?.get(0))
                 intt.setClass(activity, InfoActivity::class.java)
                 startActivity(intt)
             }
             R.id.rlJf -> {
-                intt.putExtra("data", userModel?.data?.get(0))
+                intt.putExtra("data", model?.data?.get(0))
                 intt.setClass(activity, IntegralActivity::class.java)
                 startActivity(intt)
             }
             R.id.rlMessage -> startActivity(Intent(activity, MessageActivity::class.java))
-            R.id.rlOrder -> startActivity(Intent(activity, OrderActivity::class.java))
+            R.id.rlOrder ->
+//                startActivity(Intent(activity, OrderActivity::class.java))
+            {
+                intt.setClass(activity, WebViewActivity::class.java)
+                intt.putExtra("url", ApiUtils.toMyOrder)
+                startActivity(intt)
+            }
             R.id.rlZy -> startActivity(Intent(activity, HomeWorkActivity::class.java))
             R.id.btnExit -> {
                 activity?.myApplicaton?.exitApp()
@@ -60,13 +65,15 @@ class UserFragment : LazyFragment(), View.OnClickListener {
             }
             R.id.rlAbout -> startActivity(Intent(activity, AboutActivity::class.java))
             R.id.rlLesson -> {
-//                intt.setClass(activity, WebViewActivity::class.java)
-//                intt.putExtra("url", ApiUtils.toMyCourse)
-                intt.setClass(activity,LessonActivity::class.java)
+                intt.setClass(activity, WebViewActivity::class.java)
+                intt.putExtra("url", ApiUtils.toMyCourse)
+//                intt.setClass(activity, LessonActivity::class.java)
                 startActivity(intt)
             }
-            R.id.rlNote->{
-                intt.setClass(activity, NoteActivity::class.java)
+            R.id.rlNote -> {
+//                intt.setClass(activity, NoteActivity::class.java)
+                intt.setClass(activity, WebViewActivity::class.java)
+                intt.putExtra("url", ApiUtils.toMyNote)
                 startActivity(intt)
             }
         }
@@ -87,12 +94,6 @@ class UserFragment : LazyFragment(), View.OnClickListener {
         rlAbout.setOnClickListener(this)
         rlLesson.setOnClickListener(this)
         rlNote.setOnClickListener(this)
-
-        var imgpath = imgUrl
-        if (null != userModel) {
-            imgpath = "$imgUrl${userModel?.data?.get(0)!!.userImg}"
-        }
-        showIcon(imgpath)
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -100,13 +101,12 @@ class UserFragment : LazyFragment(), View.OnClickListener {
         super.getNetStr(tag, body)
         when (tag) {
             ApiUtils.toMyInfo -> {
-                userModel = parserJson(body)
-                if (userModel?.code == 1) {
-                    tvName.text = userModel?.data?.get(0)!!.truename
-                    showIcon("$imgUrl${userModel?.data?.get(0)!!.userImg}")
-                } else {
-                    toast(userModel?.message!!)
-                }
+                model = parserJson(body)
+                if (model?.statusCode == 0) {
+                    tvName.text = model?.data?.get(0)?.truename
+                    showIcon("$imgUrl${model?.data?.get(0)?.userImg}")
+                } else
+                    toast(model?.msg!!)
             }
 
             ApiUtils.toMyCenter -> {
@@ -122,8 +122,8 @@ class UserFragment : LazyFragment(), View.OnClickListener {
     }
 
     private fun showIcon(path: String) {
-        Glide.with(this).load(path)
-                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
-                .transform(GlideCircleTransform(activity!!)).into(ivUserIcon)
+        Glide.with(this).load(path).asBitmap()
+            .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
+            .transform(GlideCircleTransform(activity!!)).into(ivUserIcon)
     }
 }

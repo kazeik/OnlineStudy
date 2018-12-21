@@ -20,7 +20,7 @@ interface ApiInter {
      *      notice :通知
      * @param page :default =1
      */
-    fun getmessage(type: String, page: Int, tag: String)
+    fun getmessage(type: String, page: Int )
 
 
     fun changepass(oldPass: String, newpass: String)
@@ -33,4 +33,8 @@ interface ApiInter {
     fun searchlesson(lessonName: String?)
 
     fun delNote(noteId:String)
+
+    fun getUserInfo(userId:String)
+
+    fun getUserPoint(page:Int)
 }

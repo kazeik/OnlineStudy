@@ -8,7 +8,9 @@ import com.hope.onlinestudy.BuildConfig
 import com.hope.onlinestudy.base.BaseActivity
 import com.hope.onlinestudy.R
 import com.hope.onlinestudy.base.BaseModel
+import com.hope.onlinestudy.model.UserModel
 import com.hope.onlinestudy.utils.ApiUtils
+import com.hope.onlinestudy.utils.ApiUtils.userId
 import com.hope.onlinestudy.utils.Utils.parserJson
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.view_title.*
@@ -67,10 +69,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     override fun getNetStr(tag: String, body: String) {
         super.getNetStr(tag, body)
         if (tag == ApiUtils.login) {
-            val jsonModel = parserJson<BaseModel>(body)
-            when (jsonModel.code) {
-                1 -> startOther(StartActivity::class.java, true)
-                else -> toast(jsonModel.message!!)
+            val jsonModel = parserJson<UserModel>(body)
+            userId = jsonModel.userId
+            when (jsonModel.statusCode) {
+                0 -> startOther(StartActivity::class.java, true)
+                else -> toast(jsonModel.msg!!)
             }
         }
     }

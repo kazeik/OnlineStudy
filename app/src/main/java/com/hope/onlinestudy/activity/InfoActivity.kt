@@ -1,5 +1,6 @@
 package com.hope.onlinestudy.activity
 
+import android.text.TextUtils
 import android.view.View
 import com.bumptech.glide.Glide
 import com.hope.onlinestudy.R
@@ -32,10 +33,10 @@ class InfoActivity : BaseActivity(), View.OnClickListener {
         }
 
         Glide.with(this).load("${ApiUtils.imgUrl}${usermodel?.userImg}").asBitmap()
-                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).override(100, 100)
-                .transform(GlideCircleTransform(this)).into(ivUserIcon)
-        tvUserAccount.text = usermodel?.username
-        tvUserName.text = usermodel?.truename
+            .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).override(100, 100)
+            .transform(GlideCircleTransform(this)).into(ivUserIcon)
+        tvUserAccount.text = if (TextUtils.isEmpty(usermodel?.username)) "" else usermodel?.username
+        tvUserName.text = if (TextUtils.isEmpty(usermodel?.truename)) "" else usermodel?.truename
         tvSex.text = if (usermodel?.usersex == "1") {
             "女"
         } else if (usermodel?.usersex == "2") {
@@ -43,9 +44,9 @@ class InfoActivity : BaseActivity(), View.OnClickListener {
         } else {
             ""
         }
-        tvTel.text = usermodel?.mobilephone
-        tvEmail.text = usermodel?.useremail
-        tvSchool.text = ""
+        tvTel.text = if (TextUtils.isEmpty(usermodel?.mobilephone)) "" else usermodel?.mobilephone
+        tvEmail.text = if (TextUtils.isEmpty(usermodel?.useremail)) "" else usermodel?.useremail
+        tvSchool.text = if (TextUtils.isEmpty(usermodel?.companyName)) "" else usermodel?.companyName
 
     }
 

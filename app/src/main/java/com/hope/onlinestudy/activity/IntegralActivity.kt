@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_integral.*
 import kotlinx.android.synthetic.main.view_title.*
 
 class IntegralActivity : BaseActivity(), View.OnClickListener {
+    private var page = 1
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.iv_backup -> finish()
@@ -32,8 +33,12 @@ class IntegralActivity : BaseActivity(), View.OnClickListener {
         rcvList.layoutManager = LinearLayoutManager(this)
         rcvList.adapter = adapter
 
+        getPoint()
+    }
+
+    private fun getPoint() {
         showDialog()
-        apiInter.sigleRequest(ApiUtils.toMyPoint)
+        apiInter.getUserPoint(page)
     }
 
     override fun getNetStr(tag: String, body: String) {

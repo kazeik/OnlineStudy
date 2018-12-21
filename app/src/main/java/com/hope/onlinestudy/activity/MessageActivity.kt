@@ -7,6 +7,7 @@ import com.hope.onlinestudy.R
 import com.hope.onlinestudy.adapter.TabVpAdapter
 import com.hope.onlinestudy.base.BaseActivity
 import com.hope.onlinestudy.fragment.MessageFragment
+import com.hope.onlinestudy.fragment.NotifiyFragment
 import com.hope.onlinestudy.model.MsgNotifModel
 import com.hope.onlinestudy.utils.ApiUtils
 import com.hope.onlinestudy.utils.Utils
@@ -25,18 +26,17 @@ class MessageActivity : BaseActivity(), View.OnClickListener {
         return R.layout.layout_tab_vfp
     }
 
-    private val msgFragment: MessageFragment by lazy { MessageFragment() }
-    private val noticFragment: MessageFragment by lazy { MessageFragment() }
-    private val homeAdapter: TabVpAdapter by lazy { TabVpAdapter(supportFragmentManager) }
-    private val tabInndicat: Array<String> by lazy { resources.getStringArray(R.array.messagetitle) }
-    private val itemFragments: ArrayList<Fragment> by lazy { ArrayList<Fragment>() }
     override fun initData() {
         tv_title.text = "我的消息"
         iv_backup.setOnClickListener(this)
 
-        itemFragments.add(msgFragment)
-        itemFragments.add(noticFragment)
+        val itemFragments = ArrayList<Fragment>()
+        itemFragments.add(MessageFragment())
+        itemFragments.add(NotifiyFragment())
 
+        val tabInndicat: Array<String> = resources.getStringArray(R.array.messagetitle)
+
+        val homeAdapter = TabVpAdapter(supportFragmentManager)
         homeAdapter.fmTitle = tabInndicat
         homeAdapter.fmList = itemFragments
         vpfPage.adapter = homeAdapter
@@ -46,19 +46,6 @@ class MessageActivity : BaseActivity(), View.OnClickListener {
         }
         tabPolling.tabMode = TabLayout.MODE_FIXED
         tabPolling.setupWithViewPager(vpfPage)
-
-        showDialog()
-        apiInter.sigleRequest(ApiUtils.toMyMsg)
     }
 
-    override fun getNetStr(tag: String, body: String) {
-        super.getNetStr(tag, body)
-        when (tag) {
-            ApiUtils.toMyMsg -> {
-                val model: MsgNotifModel? = Utils.parserJson(body)
-                noticFragment.setData(model?.data?.get(0)?.notice!!)
-                msgFragment.setData(model.data?.get(0)?.message!!)
-            }
-        }
-    }
 }

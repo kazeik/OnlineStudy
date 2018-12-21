@@ -33,8 +33,8 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
 
     private val fmList: MutableList<Fragment> by lazy { ArrayList<Fragment>() }
     private var firstTime: Long = 0
-    private val homeFragment: HomeFragment by lazy { HomeFragment() }
-    private val classFragment: ClassifyFragment by lazy { ClassifyFragment() }
+//    private val homeFragment: HomeFragment by lazy { HomeFragment() }
+//    private val classFragment: ClassifyFragment by lazy { ClassifyFragment() }
     private var homeDataModel: HomeDataModel? = null
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
@@ -51,9 +51,10 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
     }
 
     override fun initData() {
-//        fmList.add(WebFragment.instance(ApiUtils.toAppHomePage))
-        fmList.add(homeFragment)
-        fmList.add(classFragment)
+        fmList.add(WebFragment.instance(ApiUtils.toAppHomePage))
+        fmList.add(WebFragment.instance(ApiUtils.toTypeList))
+//        fmList.add(homeFragment)
+//        fmList.add(classFragment)
         fmList.add(WebFragment.instance(ApiUtils.toAppExam))
         fmList.add(UserFragment())
 
@@ -63,23 +64,23 @@ class StartActivity : BaseActivity(), ViewPager.OnPageChangeListener, RadioGroup
         vfpMain.setOnPageChangeListener(this)
         gr_bottom.setOnCheckedChangeListener(this)
 
-        showDialog()
-        apiInter.sigleRequest(ApiUtils.toAppHomePage)
+//        showDialog()
+//        apiInter.sigleRequest(ApiUtils.toAppHomePage)
     }
 
-    override fun getNetStr(tag: String, body: String) {
-        super.getNetStr(tag, body)
-        when (tag) {
-            ApiUtils.toAppHomePage -> {
-                homeDataModel = Utils.parserJson(body)
-                homeFragment.initBanner(homeDataModel?.data?.get(0)?.comSlideList!!)
-                homeFragment.setRecommandData(homeDataModel?.data?.get(0)?.recommended!!)
-                homeFragment.setExcelData(homeDataModel?.data?.get(0)?.excellent!!)
-                logs("tag","请求到数据")
-                classFragment.setTypeData(homeDataModel?.data?.get(0)?.menuList!!)
-            }
-        }
-    }
+//    override fun getNetStr(tag: String, body: String) {
+//        super.getNetStr(tag, body)
+//        when (tag) {
+//            ApiUtils.toAppHomePage -> {
+//                homeDataModel = Utils.parserJson(body)
+//                homeFragment.initBanner(homeDataModel?.data?.get(0)?.comSlideList!!)
+//                homeFragment.setRecommandData(homeDataModel?.data?.get(0)?.recommended!!)
+//                homeFragment.setExcelData(homeDataModel?.data?.get(0)?.excellent!!)
+//                logs("tag","请求到数据")
+//                classFragment.setTypeData(homeDataModel?.data?.get(0)?.menuList!!)
+//            }
+//        }
+//    }
 
     override fun onKeyDown(paramInt: Int, paramKeyEvent: KeyEvent): Boolean {
         if (paramInt == KeyEvent.KEYCODE_BACK && paramKeyEvent.action == KeyEvent.ACTION_DOWN) {
